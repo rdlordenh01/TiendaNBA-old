@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Collapsible sidebar using Bootstrap 4</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar" class="text-center">
+            <div class="sidebar-header">
+                <h3>ADMIN DASHBOARD</h3>
+            </div>
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a id="m_inicio" href="#">Inicio</a>
+                </li>
+                <li class="active">
+                    <a href="#usuariosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Usuarios</a>
+                    <ul class="collapse list-unstyled" id="usuariosSubmenu">
+                        <li>
+                            <a id="m_usuarios1" href="#">Crear usuario</a>
+                        </li>
+                        <li>
+                            <a id="m_usuarios2" href="#">Listado de usuarios</a>
+                        </li>
+                        <li>
+                            <a id="m_usuarios3" href="#">Editar usuario</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#productosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Productos</a>
+                    <ul class="collapse list-unstyled" id="productosSubmenu">
+                        <li>
+                            <a id="m_productos1" href="#">Crear producto</a>
+                        </li>
+                        <li>
+                            <a id="m_productos2" href="#">Listado de productos</a>
+                        </li>
+                        <li>
+                            <a id="m_productos3" href="#">Editar producto</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#tallasSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tallas</a>
+                    <ul class="collapse list-unstyled" id="tallasSubmenu">
+                        <li>
+                            <a id="m_tallas1" href="#">Crear talla</a>
+                        </li>
+                        <li>
+                            <a id="m_tallas2" href="#">Listado de tallas</a>
+                        </li>
+                        <li>
+                            <a id="m_tallas3" href="#">Editar talla</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#pedidosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pedidos</a>
+                    <ul class="collapse list-unstyled" id="pedidosSubmenu">
+                        <li>
+                            <a id="m_pedidos1" href="#">Realizar pedido</a>
+                        </li>
+                        <li>
+                            <a id="m_pedidos2" href="#">Listado de pedidos</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#direccionesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Direcciones</a>
+                    <ul class="collapse list-unstyled" id="direccionesSubmenu">
+                        <li>
+                            <a id="m_direcciones1" href="#">Crear dirección</a>
+                        </li>
+                        <li>
+                            <a id="m_direcciones2" href="#">Listado de direcciones</a>
+                        </li>
+                        <li>
+                            <a id="m_direcciones3" href="#">Editar dirección</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#pagosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tarjetas</a>
+                    <ul class="collapse list-unstyled" id="pagosSubmenu">
+                        <li>
+                            <a id="m_pagos1" href="#">Crear tarjeta</a>
+                        </li>
+                        <li>
+                            <a id="m_pagos2" href="#">Listado de tarjetas</a>
+                        </li>
+                        <li>
+                            <a id="m_pagos3" href="#">Editar tarjeta</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#registrosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Registros</a>
+                    <ul class="collapse list-unstyled" id="registrosSubmenu">
+                        <li>
+                            <a id="m_registros1" href="#">Registros de usuario</a>
+                        </li>
+                        <li>
+                            <a id="m_registros2" href="#">Listado de registros</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a id="m_logout" href="#">Logout</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+            <h3 class="text-center mt-3 mb-2">TABLA DE DIRECCIONES</h3>
+            <form class="mt-2 p-5" enctype="multipart/form-data">
+                <div class="form-group row text-center">
+                    <div class="col-md-3"></div>
+                    <label class="col-md-3 col-form-label">Usuarios: </label>
+                    <div class="col-md-3">
+                        <select id="usuarios" class="form-control">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+                <!-- <div class="form-row text-center" id="div-tabla"></div> -->
+            </form>
+            <div id="principal"></div>
+            <div id="paginador" class="mt-5">
+                <!-- <div class="col-md-4"></div> -->
+                <nav aria-label="..." class="mt-2">
+                    <ul class="pagination justify-content-center" id="paginas">
+                      
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <script src="js/general.js"></script>
+    <script src="js/direcciones.js"></script>
+    <script src="js/paginador.js"></script>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+</body>
+
+</html>

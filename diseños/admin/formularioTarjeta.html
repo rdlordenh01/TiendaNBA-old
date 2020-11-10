@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Collapsible sidebar using Bootstrap 4</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/estilos.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar" class="text-center">
+            <div class="sidebar-header">
+                <h3>ADMIN DASHBOARD</h3>
+            </div>
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a id="m_inicio" href="#">Inicio</a>
+                </li>
+                <li class="active">
+                    <a href="#usuariosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Usuarios</a>
+                    <ul class="collapse list-unstyled" id="usuariosSubmenu">
+                        <li>
+                            <a id="m_usuarios1" href="#">Crear usuario</a>
+                        </li>
+                        <li>
+                            <a id="m_usuarios2" href="#">Listado de usuarios</a>
+                        </li>
+                        <li>
+                            <a id="m_usuarios3" href="#">Editar usuario</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#productosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Productos</a>
+                    <ul class="collapse list-unstyled" id="productosSubmenu">
+                        <li>
+                            <a id="m_productos1" href="#">Crear producto</a>
+                        </li>
+                        <li>
+                            <a id="m_productos2" href="#">Listado de productos</a>
+                        </li>
+                        <li>
+                            <a id="m_productos3" href="#">Editar producto</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#tallasSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tallas</a>
+                    <ul class="collapse list-unstyled" id="tallasSubmenu">
+                        <li>
+                            <a id="m_tallas1" href="#">Crear talla</a>
+                        </li>
+                        <li>
+                            <a id="m_tallas2" href="#">Listado de tallas</a>
+                        </li>
+                        <li>
+                            <a id="m_tallas3" href="#">Editar talla</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#pedidosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pedidos</a>
+                    <ul class="collapse list-unstyled" id="pedidosSubmenu">
+                        <li>
+                            <a id="m_pedidos1" href="#">Realizar pedido</a>
+                        </li>
+                        <li>
+                            <a id="m_pedidos2" href="#">Listado de pedidos</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#direccionesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Direcciones</a>
+                    <ul class="collapse list-unstyled" id="direccionesSubmenu">
+                        <li>
+                            <a id="m_direcciones1" href="#">Crear dirección</a>
+                        </li>
+                        <li>
+                            <a id="m_direcciones2" href="#">Listado de direcciones</a>
+                        </li>
+                        <li>
+                            <a id="m_direcciones3" href="#">Editar dirección</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#pagosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tarjetas</a>
+                    <ul class="collapse list-unstyled" id="pagosSubmenu">
+                        <li>
+                            <a id="m_pagos1" href="#">Crear tarjeta</a>
+                        </li>
+                        <li>
+                            <a id="m_pagos2" href="#">Listado de tarjetas</a>
+                        </li>
+                        <li>
+                            <a id="m_pagos3" href="#">Editar tarjeta</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#registrosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Registros</a>
+                    <ul class="collapse list-unstyled" id="registrosSubmenu">
+                        <li>
+                            <a id="m_registros1" href="#">Registros de usuario</a>
+                        </li>
+                        <li>
+                            <a id="m_registros2" href="#">Listado de registros</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a id="m_logout" href="#">Logout</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content" class="contenedor">
+            <h3 class="text-center mt-3 mb-5">FORMULARIO DE TARJETA</h3>
+            <!-- Tarjeta -->
+            <section class="tarjeta" id="tarjeta">
+                <div class="delantera">
+                    <div class="logo-marca" id="logo-marca">
+                        <img src="img/logos/visa.png" alt="">
+                    </div>
+                    <img src="img/chip-tarjeta.png" class="chip" alt="">
+                    <div class="datos">
+                        <div class="grupo" id="numero">
+                            <p class="label">Número Tarjeta</p>
+                            <p class="numero">#### #### #### ####</p>
+                        </div>
+                        <div class="flexbox">
+                            <div class="grupo" id="nombre">
+                                <p class="label">Nombre Tarjeta</p>
+                                <p class="nombre">XXXX XXXX</p>
+                            </div>
+
+                            <div class="grupo" id="expiracion">
+                                <p class="label">Expiracion</p>
+                                <p class="expiracion"><span class="mes">MM</span> / <span class="year">AA</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trasera">
+                    <div class="barra-magnetica"></div>
+                    <div class="datos">
+                        <div class="grupo" id="firma">
+                            <p class="label">Firma</p>
+                            <div class="firma"><p></p></div>
+                        </div>
+                        <div class="grupo" id="ccv">
+                            <p class="label">CCV</p>
+                            <p class="ccv"></p>
+                        </div>
+                    </div>
+                    <p class="leyenda">Todos los derechos reservados al propietario de la tarjeta. Avise en caso de robo o substracción a una oficina del banco que emitio esta tarjeta</p>
+                    <a href="#" class="link-banco">www.asociaciondebancoseuropeos.com</a>
+                </div>
+            </section>
+
+            <!-- Contenedor Boton Abrir Formulario -->
+            <div class="contenedor-btn">
+                <button class="btn-abrir-formulario" id="btn-abrir-formulario">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+
+            <!-- Formulario -->
+            <form id="formulario-tarjeta" class="formulario-tarjeta">
+                <div id="creado" class="alert alert-success mb-4" role="alert">
+		            La tarjeta ha sido creada correctamente.
+                </div>
+                <div id="nocreado" class="alert alert-danger mb-4" role="alert">
+		            La tarjeta no ha sido creada correctamente.
+                </div>
+                <div class="grupo">
+                    <label for="usuario">Usuario: </label>
+                    <!-- <input type="text" class="form-control" id="usuario" name="usuario" required> -->
+                    <select id="usuario" name="usuario" class="form-control">
+                    </select>
+                </div>
+                <div class="grupo">
+                    <label for="inputNumero">Número Tarjeta</label>
+                    <input type="text" id="inputNumero" maxlength="19" autocomplete="off">
+                </div>
+                <div class="grupo">
+                    <label for="inputNombre">Nombre</label>
+                    <input type="text" id="inputNombre" maxlength="45" autocomplete="off">
+                </div>
+                <div class="flexbox">
+                    <div class="grupo expira">
+                        <label for="selectMes">Expiracion</label>
+                        <div class="flexbox">
+                            <div class="grupo-select">
+                                <select name="mes" id="selectMes">
+                                    <option disabled selected>Mes</option>
+                                </select>
+                            </div>
+                            <div class="grupo-select">
+                                <select name="year" id="selectYear">
+                                    <option disabled selected>Año</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grupo ccv">
+                        <label for="inputCCV">CCV</label>
+                        <input type="text" id="inputCCV" maxlength="3">
+                    </div>
+                </div>
+                <button type="button" class="btn-enviar" id="btnCard">Crear tarjeta</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/general.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <script src="js/card.js"></script>
+    <script src="js/addCard.js"></script>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+</body>
+
+</html>
