@@ -5,7 +5,7 @@ include_once 'db.php';
 class Direccion extends DB{
     
     function obtenerDirecciones(){
-        $query = $this->connect()->query('SELECT u.user, d.nombre, d.apellidos, d.tipo_via, d.direccion, d.numero, d.detalles, d.ciudad, d.localidad, d.codigo_postal, d.dni FROM usuarios u, direcciones d WHERE u.id=d.usuario');
+        $query = $this->connect()->query('SELECT u.user, d.nombre, d.apellidos, d.tipo_via, d.direccion, d.numero, d.detalles, d.ciudad, d.localidad, d.codigo_postal, d.dni FROM users u, direcciones d WHERE u.id=d.usuario');
         return $query;
     }
 
@@ -18,7 +18,7 @@ class Direccion extends DB{
 
     function obtenerDireccion($id){
         //'SELECT * FROM direcciones WHERE id = :id'
-        $query = $this->connect()->prepare('SELECT d.id, u.user, d.nombre, d.apellidos, d.tipo_via, d.direccion, d.numero, d.detalles, d.ciudad, d.localidad, d.codigo_postal, d.dni FROM direcciones d, usuarios u WHERE d.usuario=u.id AND d.usuario=:id');
+        $query = $this->connect()->prepare('SELECT d.id, u.user, d.nombre, d.apellidos, d.tipo_via, d.direccion, d.numero, d.detalles, d.ciudad, d.localidad, d.codigo_postal, d.dni FROM direcciones d, users u WHERE d.usuario=u.id AND d.usuario=:id');
         $query->execute(['id' => $id]);
         return $query;
     }

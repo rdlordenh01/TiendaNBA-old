@@ -27,7 +27,7 @@ class ApiProductos{
                     "equipo" => $row['equipo'],
                     "descripcion" => $row['descripcion'],
                     "precio" => $row['precio'],
-                    "fecha" => $row['fecha'],
+                    "fecha" => $row['created_at'],
                     "imagen" => $row['foto']
                 );
                 array_push($productos["items"], $item);
@@ -58,7 +58,7 @@ class ApiProductos{
                     "equipo" => $row['equipo'],
                     "descripcion" => $row['descripcion'],
                     "precio" => $row['precio'],
-                    "fecha" => $row['fecha'],
+                    "fecha" => $row['created_at'],
                     "imagen" => $row['foto'],
                     "total" => $row['total']
                 );
@@ -90,7 +90,7 @@ class ApiProductos{
                 "equipo" => $row['equipo'],
                 "descripcion" => $row['descripcion'],
                 "precio" => $row['precio'],
-                "fecha" => $row['fecha'],
+                "fecha" => $row['created_at'],
                 "imagen" => $row['foto']
             );
             array_push($productos["items"], $item);

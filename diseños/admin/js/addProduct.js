@@ -82,12 +82,12 @@ function destinoIMG(){
     alert(document.getElementById("foto").src);
 }
 
-function añadirProducto(){
+/* function añadirProducto(){
     const params = new URLSearchParams("nombre="+document.getElementById('nombre').value+"&categoria="+document.getElementById('categoria').value+
     "&subcategoria="+document.getElementById('subcategoria').value+"&marca="+document.getElementById('marca').value+"&equipo="+document.getElementById('equipo').value+
     "&descripcion="+document.getElementById('descripcion').value+"&precio="+document.getElementById('precio').value+"&imagen="+document.getElementById("foto").src+"");
     params.append('file', document.getElementById('img').files[0]);
-    fetch ('http://localhost/php/42.%20API-03/tutorial/addProduct2.php', {
+    fetch ('../../server/addProduct2.php', {
         method: 'POST',
         body: params
     })
@@ -97,4 +97,4 @@ function añadirProducto(){
         console.log(datos);
         
     });
-}
+} */

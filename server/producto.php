@@ -41,7 +41,7 @@ class Producto extends DB{
     }
 
     function nuevoProducto($producto,$max){
-        $query = $this->connect()->prepare('INSERT INTO productos (id,nombre,categoria,subcategoria,marca,equipo,descripcion,precio,fecha,foto) 
+        $query = $this->connect()->prepare('INSERT INTO productos (id,nombre,categoria,subcategoria,marca,equipo,descripcion,precio,created_at,foto) 
         VALUES (:id,:nombre,:categoria,:subcategoria,:marca,:equipo,:descripcion,:precio, NOW(),:foto)');
         $query->execute(['id' => $max['id']+1, 'nombre' => $producto['nombre'], 'categoria' => $producto['categoria'], 'subcategoria' => $producto['subcategoria'], 
         'marca' => $producto['marca'], 'equipo' => $producto['equipo'], 'descripcion' => $producto['descripcion'], 'precio' => $producto['precio'], 

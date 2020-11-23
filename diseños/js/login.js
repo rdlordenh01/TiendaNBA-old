@@ -23,6 +23,7 @@ function login(){
     /* fetch ('http://localhost/php/TiendaNBA/server/user.php?user='+document.getElementById("username").value+'&passwd='+document.getElementById("passwd").value, {
         "method": "GET"
     }) */
+    alert('../server/user.php?user='+document.getElementById("username").value+'&passwd='+document.getElementById("passwd").value);
     fetch ('../server/user.php?user='+document.getElementById("username").value+'&passwd='+document.getElementById("passwd").value, {
         "method": "GET"
     })

@@ -117,6 +117,12 @@ function disable_nocreado(){
 }
 
 function crearDireccion(){
+    alert("usuario="+document.getElementById('usuario').value+"&nombre="+document.getElementById('nombre').value+
+    "&apellidos="+document.getElementById('apellidos').value+"&tipo_via="+document.getElementById('tipo_via').value+
+    "&direccion="+document.getElementById('direccion').value+"&numero="+document.getElementById('numero').value+
+    "&ciudad="+document.getElementById('ciudad').value+"&localidad="+document.getElementById('localidad').value+
+    "&codigo_postal="+document.getElementById('codigo_postal').value+"&dni="+document.getElementById('dni').value+
+    "&detalles="+document.getElementById('detalles').value+"&id_user="+sessionStorage["id"]+"");
     const params = new URLSearchParams("usuario="+document.getElementById('usuario').value+"&nombre="+document.getElementById('nombre').value+
     "&apellidos="+document.getElementById('apellidos').value+"&tipo_via="+document.getElementById('tipo_via').value+
     "&direccion="+document.getElementById('direccion').value+"&numero="+document.getElementById('numero').value+

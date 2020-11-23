@@ -1,0 +1,230 @@
+{
+  "categorias": [
+    { 
+      "name": "Accesorios",                                  
+      "subcategoria": [
+        {
+          "name": "Gorras",
+          "tallas": [
+            {
+              "size": "S-M"
+            },
+            {
+              "size": "M-L"
+            },
+            {
+              "size": "L-XL"
+            }
+          ]
+        },
+        {
+          "name": "Gorras2",
+          "tallas": [
+            {
+              "size": "Talla única"
+            }
+          ]
+        },
+        {                                         
+          "name": "Material deportivo",
+          "tallas": [
+            {
+              "size": "Talla única"
+            }
+          ]
+        },
+        {                                         
+          "name": "Souvenirs",
+          "tallas": [
+            {
+              "size": "Talla única"
+            }
+          ]
+        }
+      ]
+    },
+    { 
+      "name": "Ropa",                                  
+      "subcategoria": [
+        {
+          "name": "Camiseta de juego",
+          "tallas": [
+            {
+              "size": "S"
+            },
+            {
+              "size": "M"
+            },
+            {
+              "size": "L"
+            },
+            {
+              "size": "XL"
+            }
+          ]
+        },
+        {                                         
+          "name": "Camiseta",
+          "tallas": [
+            {
+              "size": "S"
+            },
+            {
+              "size": "M"
+            },
+            {
+              "size": "L"
+            },
+            {
+              "size": "XL"
+            }
+          ]
+        },
+        {                                         
+          "name": "Pantalón de juego",
+          "tallas": [
+            {
+              "size": "S"
+            },
+            {
+              "size": "M"
+            },
+            {
+              "size": "L"
+            },
+            {
+              "size": "XL"
+            }
+          ]
+        },
+        {                                         
+          "name": "Equipación",
+          "tallas": [
+            {
+              "size": "S"
+            },
+            {
+              "size": "M"
+            },
+            {
+              "size": "L"
+            },
+            {
+              "size": "XL"
+            }
+          ]
+        },
+        {                                         
+          "name": "Calcetines",
+          "tallas": [
+            {
+              "size": "38-42"
+            },
+            {
+              "size": "42-46"
+            },
+            {
+              "size": "46-50"
+            },
+            {
+              "size": "50-54"
+            }
+          ]
+        }
+      ]
+    },
+    { 
+      "name": "Calzado",                                  
+      "subcategoria": [
+        {
+          "name": "Zapatillas de juego",
+          "tallas": [
+            {
+              "size": "40"
+            },
+            {
+              "size": "41"
+            },
+            {
+              "size": "42"
+            },
+            {
+              "size": "43"
+            },
+            {
+              "size": "44"
+            },
+            {
+              "size": "45"
+            },
+            {
+              "size": "46"
+            },
+            {
+              "size": "47"
+            },
+            {
+              "size": "48"
+            },
+            {
+              "size": "49"
+            },
+            {
+              "size": "50"
+            },
+            {
+              "size": "51"
+            },
+            {
+              "size": "52"
+            }
+          ]
+        },
+        {                                         
+          "name": "Zapatillas",
+          "tallas": [
+            {
+              "size": "40"
+            },
+            {
+              "size": "41"
+            },
+            {
+              "size": "42"
+            },
+            {
+              "size": "43"
+            },
+            {
+              "size": "44"
+            },
+            {
+              "size": "45"
+            },
+            {
+              "size": "46"
+            },
+            {
+              "size": "47"
+            },
+            {
+              "size": "48"
+            },
+            {
+              "size": "49"
+            },
+            {
+              "size": "50"
+            },
+            {
+              "size": "51"
+            },
+            {
+              "size": "52"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

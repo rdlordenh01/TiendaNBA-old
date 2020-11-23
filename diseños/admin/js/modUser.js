@@ -7,7 +7,7 @@ document.getElementById("usuario").addEventListener("change", function(){ cargar
 cargar_users();
 
 function cargar_users(){
-    fetch ('../../server/user.php', {
+    fetch ('../../server/user.php?tipo=Administrador', {
         "method": "GET"
     })
     .then(data => data.json()) 

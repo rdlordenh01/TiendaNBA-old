@@ -1,0 +1,43 @@
+{
+  "marcas": [
+    {                                         
+      "name": "Adidas"
+    },
+    {                                         
+      "name": "ANDI 1"
+    },
+    {                                         
+      "name": "Jordan"
+    },
+    {                                         
+      "name": "Mitchell and Ness"
+    },
+    {                                         
+      "name": "Molten"
+    },
+    {                                         
+      "name": "NBA Oficial"
+    },
+    {                                         
+      "name": "New Era"
+    },
+    {                                         
+      "name": "Nike"
+    },
+    {                                         
+      "name": "Reebok"
+    },
+    {                                         
+      "name": "Puma"
+    },
+    {                                         
+      "name": "Spalding"
+    },
+    {                                         
+      "name": "Under Armour"
+    },
+    {                                         
+      "name": "Wilson"
+    }
+  ]
+}
