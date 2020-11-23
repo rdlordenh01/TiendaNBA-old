@@ -98,6 +98,7 @@ function vaciar(){
     document.getElementById("ciudad").value = "";
     document.getElementById("localidad").value = "";
     document.getElementById("codigo_postal").value = "";
+    document.getElementById("telefono").value = "";
     document.getElementById("dni").value = "";
 }
 
@@ -112,6 +113,7 @@ function rellenar(datos){
     document.getElementById("ciudad").value = datos['ciudad'];
     document.getElementById("localidad").value = datos['localidad'];
     document.getElementById("codigo_postal").value = datos['codigo_postal'];
+    document.getElementById("telefono").value = datos['telefono'];
     document.getElementById("dni").value = datos['dni'];
 }
 
@@ -119,7 +121,8 @@ function modDireccion(){
     if(document.getElementById("nombre").value!="" & document.getElementById("apellidos").value!="" & document.getElementById("tipo_via").value!="" & 
     document.getElementById("direccion").value!="" & document.getElementById("numero").value!="" & document.getElementById("detalles").value!="" & 
     document.getElementById("ciudad").value!="" & document.getElementById("localidad").value!="" & document.getElementById("codigo_postal").value!="" & 
-    document.getElementById("codigo_postal").value.length==5 & document.getElementById("dni").value!="" & document.getElementById("dni").value.length==9){
+    document.getElementById("codigo_postal").value.length==5 & document.getElementById("telefono").value!="" & document.getElementById("dni").value!="" & 
+    document.getElementById("dni").value.length==9){
         modificar();
     }
 }
@@ -128,7 +131,7 @@ function modificar(){
     const params = new URLSearchParams("id="+document.getElementById('direcciones').value+"&nombre="+document.getElementById('nombre').value+
     "&apellidos="+document.getElementById('apellidos').value+"&tipo_via="+document.getElementById('tipo_via').value+"&direccion="+document.getElementById('direccion').value+
     "&numero="+document.getElementById('numero').value+"&detalles="+document.getElementById('detalles').value+"&ciudad="+document.getElementById('ciudad').value+
-    "&localidad="+document.getElementById('localidad').value+"&codigo_postal="+document.getElementById('codigo_postal').value+
+    "&localidad="+document.getElementById('localidad').value+"&codigo_postal="+document.getElementById('codigo_postal').value+"&telefono="+document.getElementById('telefono').value+
     "&dni="+document.getElementById('dni').value+"&id_user="+sessionStorage["id"]+"");
     fetch ('../../server/modAdress.php', {
         method: 'POST',

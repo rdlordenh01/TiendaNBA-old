@@ -110,6 +110,20 @@ document.getElementById("codigo_postal").addEventListener('keyup', (e) => {
     }
 });
 
+document.getElementById("telefono").addEventListener('keyup', (e) => {
+	let valorInput = e.target.value;
+	document.getElementById("telefono").value = valorInput
+	// Eliminamos espacios en blanco
+	.replace(/\s/g, '')
+	// Eliminar las letras
+    .replace(/\D/g, '');
+    if(document.getElementById("telefono").value.length>0){
+        document.getElementById("telefono").className = "form-control border border-success";
+    }else{
+        document.getElementById("telefono").className = "form-control border border-danger";
+    }
+});
+
 function nif(dni) {
 
   if(document.getElementById("dni").value.substring(0,1)=="0" && document.getElementById("dni").value.length==9){

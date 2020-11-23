@@ -27,6 +27,7 @@ class ApiDirecciones{
                     "ciudad" => $row['ciudad'],
                     "localidad" => $row['localidad'],
                     "codigo_postal" => $row['codigo_postal'],
+                    "telefono" => $row['telefono'],
                     "dni" => $row['dni']
                 );
                 array_push($direcciones["items"], $item);
@@ -60,6 +61,7 @@ class ApiDirecciones{
                     "ciudad" => $row['ciudad'],
                     "localidad" => $row['localidad'],
                     "codigo_postal" => $row['codigo_postal'],
+                    "telefono" => $row['telefono'],
                     "dni" => $row['dni']
                 );
                 array_push($direcciones["items"], $item);
@@ -92,6 +94,7 @@ class ApiDirecciones{
                     "ciudad" => $row['ciudad'],
                     "localidad" => $row['localidad'],
                     "codigo_postal" => $row['codigo_postal'],
+                    "telefono" => $row['telefono'],
                     "dni" => $row['dni']
                 );
                 array_push($direcciones["items"], $item);

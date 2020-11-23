@@ -40,9 +40,9 @@ function clasificacion(){
         console.log(datos);
         document.getElementById("principal").innerHTML="";
         rows = 10;
-        columnas = ["Usuario","Nombre","Apellidos","Via","Dirección","Número","Detalles","Ciudad","Localidad","C.P.","DNI"];
+        columnas = ["Usuario","Nombre","Apellidos","Via","Dirección","Número","Detalles","Ciudad","Localidad","C.P.","Teléfono","DNI"];
         if(datos['mensaje']!="No hay direcciones"){ 
-            campos=["user", "nombre","apellidos","tipo_via","direccion","numero","detalles","ciudad","localidad","codigo_postal","dni"];  
+            campos=["user", "nombre","apellidos","tipo_via","direccion","numero","detalles","ciudad","localidad","codigo_postal","telefono","dni"];  
             sessionStorage['array_paginado'] = JSON.stringify(datos['items']); 
             conferencias("", datos['items'],campos,rows,columnas);
             paginar(datos['items'].length, campos, rows);

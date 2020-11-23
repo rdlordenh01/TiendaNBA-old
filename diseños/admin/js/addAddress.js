@@ -11,7 +11,10 @@ function vaciar_form(){
     document.getElementById("ciudad").value = "";
     document.getElementById("localidad").value = "";
     document.getElementById("codigo_postal").value = "";
+    document.getElementById("telefono").value = "";
     document.getElementById("dni").value = "";
+    document.getElementById("dni").readOnly = false;
+    //document.getElementById("dni").className = "form-control";
     document.getElementById("detalles").value = "";
 }
 
@@ -47,7 +50,7 @@ function dardealta(){
     document.getElementById("tipo_via").value!="" & document.getElementById("direccion").value!="" & document.getElementById("numero").value!="" &
     document.getElementById("ciudad").value!="" & document.getElementById("localidad").value!="" & document.getElementById("codigo_postal").value!="" &
     document.getElementById("codigo_postal").value.length==5 & document.getElementById("dni").value!="" & document.getElementById("dni").value.length==9 & 
-    document.getElementById("detalles").value!="" & document.getElementById("dni").className=="form-control border border-success"){
+    document.getElementById("telefono").value!="" & document.getElementById("detalles").value!="" & document.getElementById("dni").className=="form-control border border-success"){
         crearDireccion();
         vaciar_form();
         disable_nocreado();
@@ -117,18 +120,12 @@ function disable_nocreado(){
 }
 
 function crearDireccion(){
-    alert("usuario="+document.getElementById('usuario').value+"&nombre="+document.getElementById('nombre').value+
-    "&apellidos="+document.getElementById('apellidos').value+"&tipo_via="+document.getElementById('tipo_via').value+
-    "&direccion="+document.getElementById('direccion').value+"&numero="+document.getElementById('numero').value+
-    "&ciudad="+document.getElementById('ciudad').value+"&localidad="+document.getElementById('localidad').value+
-    "&codigo_postal="+document.getElementById('codigo_postal').value+"&dni="+document.getElementById('dni').value+
-    "&detalles="+document.getElementById('detalles').value+"&id_user="+sessionStorage["id"]+"");
     const params = new URLSearchParams("usuario="+document.getElementById('usuario').value+"&nombre="+document.getElementById('nombre').value+
     "&apellidos="+document.getElementById('apellidos').value+"&tipo_via="+document.getElementById('tipo_via').value+
     "&direccion="+document.getElementById('direccion').value+"&numero="+document.getElementById('numero').value+
     "&ciudad="+document.getElementById('ciudad').value+"&localidad="+document.getElementById('localidad').value+
-    "&codigo_postal="+document.getElementById('codigo_postal').value+"&dni="+document.getElementById('dni').value+
-    "&detalles="+document.getElementById('detalles').value+"&id_user="+sessionStorage["id"]+"");
+    "&codigo_postal="+document.getElementById('codigo_postal').value+"&telefono="+document.getElementById('telefono').value+
+    "&dni="+document.getElementById('dni').value+"&detalles="+document.getElementById('detalles').value+"&id_user="+sessionStorage["id"]+"");
     fetch ('../../server/addAdress.php', {
         method: 'POST',
         body: params
