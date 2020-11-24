@@ -3,7 +3,7 @@ document.getElementById("btnTalla").addEventListener("click", dardealta, false);
 document.getElementById("producto").addEventListener("change", cargar_tallas, false);
 
 function vaciar_form(){
-    document.getElementById("talla").value = "";
+    document.getElementById("talla").selectedIndex = 0;
     document.getElementById("cantidad").value = "";
 }
 
