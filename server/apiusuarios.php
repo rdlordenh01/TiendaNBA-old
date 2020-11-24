@@ -17,8 +17,8 @@ class ApiUsuarios{
     
                 $item=array(
                     "id" => $row['id'],
-                    "user" => $row['user'],
-                    "passwd" => $row['passwd'],
+                    "user" => $row['name'],
+                    "passwd" => $row['password'],
                     "tipo" => $row['tipo'],
                     "email" => $row['email']
                 );
@@ -43,8 +43,8 @@ class ApiUsuarios{
         
             $item=array(
                 "id" => $row['id'],
-                "user" => $row['user'],
-                "passwd" => $row['passwd'],
+                "user" => $row['name'],
+                "passwd" => $row['password'],
                 "tipo" => $row['tipo'],
                 "email" => $row['email'],
                 "activo" => $row['activo']
@@ -68,8 +68,8 @@ class ApiUsuarios{
     
                 $item=array(
                     "id" => $row['id'],
-                    "user" => $row['user'],
-                    "passwd" => $row['passwd'],
+                    "user" => $row['name'],
+                    "passwd" => $row['password'],
                     "tipo" => $row['tipo'],
                     "email" => $row['email']
                 );
@@ -93,8 +93,8 @@ class ApiUsuarios{
         
             $item=array(
                 "id" => $row['id'],
-                "user" => $row['user'],
-                "passwd" => $row['passwd'],
+                "user" => $row['name'],
+                "passwd" => $row['password'],
                 "tipo" => $row['tipo'],
                 "email" => $row['email']
             );

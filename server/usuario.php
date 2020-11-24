@@ -22,7 +22,7 @@ class Usuario extends DB{
     }
 
     function obtenerLogin($user,$passwd){
-        $query = $this->connect()->prepare('SELECT * FROM users WHERE user = :user AND passwd = :passwd AND activo = 1');
+        $query = $this->connect()->prepare('SELECT * FROM users WHERE name = :user AND password = :passwd AND activo = 1 AND tipo = "Administrador"');
         $query->execute(['user' => $user, 'passwd' => $passwd]);
         return $query;
     }
@@ -33,19 +33,19 @@ class Usuario extends DB{
     }
 
     function comprobar($usuario){
-        $query = $this->connect()->prepare('SELECT * FROM users WHERE user = :user');
+        $query = $this->connect()->prepare('SELECT * FROM users WHERE name = :user');
         $query->execute(['user' => $usuario['user']]);
         return $query;
     }
 
     function nuevoUsuario($usuario,$max){
-        $query = $this->connect()->prepare('INSERT INTO users (id,user,passwd,tipo,email,activo) VALUES (:id,:user,:passwd,:tipo,:email,1)');
+        $query = $this->connect()->prepare('INSERT INTO users (id,name,password,tipo,email,activo) VALUES (:id,:user,:passwd,:tipo,:email,1)');
         $query->execute(['id' => $max['id']+1, 'user' => $usuario['user'], 'passwd' => $usuario['passwd'], 'tipo' => $usuario['tipo'], 'email' => $usuario['email']]);
         return $query;
     }
 
     function modUsuario($usuario){
-        $query = $this->connect()->prepare('UPDATE users SET user=:user,passwd=:passwd,tipo=:tipo,email=:email WHERE id=:id');
+        $query = $this->connect()->prepare('UPDATE users SET name=:user,password=:passwd,tipo=:tipo,email=:email WHERE id=:id');
         $query->execute(['id' => $usuario['id'], 'user' => $usuario['user'], 'passwd' => $usuario['passwd'], 'tipo' => $usuario['tipo'], 'email' => $usuario['email']]);
         return $query;
     }

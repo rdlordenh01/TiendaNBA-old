@@ -198,7 +198,7 @@ class ApiProductos{
         $producto = new Producto();
         $results = $producto->comprobarDel($item['id']);
         if($results->rowCount() == 0){
-            $this->exito('No tiene registros, se puede borrar');
+            //$this->exito('No tiene registros, se puede borrar');
             $imagen = $producto->buscarIMG($item['id']);
             if($imagen->rowCount() == 1){
                 $row = $imagen->fetch();
@@ -225,7 +225,7 @@ class ApiProductos{
                         $this->error('No hay id del registro');
                     }
                 }else{
-                    //unlink($row['foto']);
+                    unlink($row['foto']);
                     $this->exito('Producto eliminado');
                     //METER REGISTRO
                     $registro = new Registro();

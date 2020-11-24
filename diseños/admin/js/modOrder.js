@@ -23,10 +23,10 @@ function cargar_pedidos(){
             }
             crearTabla(document.getElementById("pedidos").value);
         }else{
-            var x = document.getElementById("div-tabla");
+            var x = document.getElementById("principal");
             x.innerHTML = "";
-            var titulo = document.createElement("h3");
-            titulo.setAttribute("class", "py-5 m-auto");
+            var titulo = document.createElement("h5");
+            titulo.setAttribute("class", "py-5 m-auto text-center font-weight-bold");
             titulo.innerHTML = "NO HAY PEDIDOS PENDIENTES";
             x.appendChild(titulo);
         }

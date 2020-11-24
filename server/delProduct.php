@@ -6,7 +6,7 @@
 
     if(isset($_POST['id'])){ 
         $item = array(
-            "id" => $_POST['id'],
+            'id' => $_POST['id'],
             'id_user' => $_POST['id_user']
         );
         $api->del($item); 

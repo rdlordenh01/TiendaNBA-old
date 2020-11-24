@@ -23,8 +23,10 @@ class Producto extends DB{
 
     function comprobarDel($id){
         //$query = $this->connect()->prepare('SELECT * FROM productos p, filas f, tallas t WHERE p.id=f.producto AND t.producto=p.id AND p.id=:id');
-        $query = $this->connect()->prepare('SELECT * FROM productos LEFT JOIN filas ON productos.id = filas.producto LEFT JOIN tallas ON productos.id = tallas.producto     
-            WHERE (tallas.id is NOT NULL OR filas.id is NOT NULL) AND productos.id=:id');
+        $query = $this->connect()->prepare('SELECT * FROM tallas LEFT JOIN filas ON tallas.id = filas.talla LEFT JOIN productos ON productos.id = tallas.producto     
+        WHERE (tallas.id is NOT NULL OR filas.id is NOT NULL) AND productos.id=:id');
+        /* $query = $this->connect()->prepare('SELECT * FROM productos LEFT JOIN filas ON productos.id = filas.producto LEFT JOIN tallas ON productos.id = tallas.producto     
+            WHERE (tallas.id is NOT NULL OR filas.id is NOT NULL) AND productos.id=:id'); */
         $query->execute(['id' => $id]);
         return $query;
     }
