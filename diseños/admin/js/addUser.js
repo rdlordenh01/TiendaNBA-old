@@ -12,9 +12,6 @@ function dardealta(){
     if(document.getElementById("user").value!="" & document.getElementById("passwd").value!="" & document.getElementById("tipo").value!="" & 
     document.getElementById("email").value!="" & document.getElementById("email").value.length>10){
         crearUser();
-        vaciar_form();
-        disable_nocreado();
-        enable_creado();
     }
     else{
         disable_creado();
@@ -42,22 +39,6 @@ function comprobar(){
     }
 }
 
-function enable_creado(){
-    document.getElementById("creado").style = "display: block;";
-}
-
-function enable_nocreado(){
-    document.getElementById("nocreado").style = "display: block;";
-}
-
-function disable_creado(){
-    document.getElementById("creado").style = "display: none;";
-}
-
-function disable_nocreado(){
-    document.getElementById("nocreado").style = "display: none;";
-}
-
 function crearUser(){
     const params = new URLSearchParams("user="+document.getElementById('user').value+"&passwd="+document.getElementById('passwd').value+
     "&tipo="+document.getElementById('tipo').value+"&email="+document.getElementById('email').value+"&id_user="+sessionStorage["id"]+"");
@@ -68,5 +49,14 @@ function crearUser(){
     .then(data => data.json()) 
     .then(datos => {
         console.log(datos);
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Nuevo usuario registrado"){
+            vaciar_form();
+            disable_nocreado();
+            enable_creado();
+        }
+        if(datos['mensaje']!=undefined && (datos['mensaje']=="Nuevo usuario no registrado" | datos['mensaje']=="Ya existe el usuario" | datos['mensaje']=="No hay id de usuario")){
+            disable_creado();
+            enable_nocreado();
+        }
     });
 }

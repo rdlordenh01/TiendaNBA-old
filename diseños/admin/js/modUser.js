@@ -77,6 +77,9 @@ function modUsuario(){
     if(document.getElementById("usuario").value!="" & document.getElementById("user").value!="" & document.getElementById("passwd").value!="" & 
     document.getElementById("tipo").value!="" & document.getElementById("email").value!="" & document.getElementById("email").value.length>10){
         modificar();
+    }else{
+        disable_creado();
+        enable_nocreado();
     }
 }
 
@@ -91,8 +94,17 @@ function modificar(){
     .then(data => data.json()) 
     .then(datos => {
         console.log(datos);
-        sessionStorage["usuario"] = document.getElementById('usuario').value;
-        location.reload();
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Usuario editado"){
+            disable_nocreado();
+            enable_creado();
+            sessionStorage["usuario"] = document.getElementById('usuario').value;
+            cargar_users();
+            //location.reload();
+        }
+        if(datos['mensaje']!=undefined && (datos['mensaje']=="Usuario no editado" | datos['mensaje']=="Ya existe el usuario")){
+            disable_creado();
+            enable_nocreado();
+        }
     });
 }
 
@@ -105,15 +117,17 @@ function delUsuario(){
     .then(data => data.json()) 
     .then(datos => {
         console.log(datos);
-        sessionStorage["usuario"] = document.getElementById('usuario').value;
-        location.reload();
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Usuario eliminado"){
+            disable_nodel();
+            enable_del();
+            cargar_users();
+            //location.reload();
+        }
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Usuario no eliminado"){
+            disable_del();
+            enable_nodel();
+        }
     });
 }
 
-function enable_noborrado(){
-    document.getElementById("nocreado").style = "display: block;";
-}
 
-function disable_noborrado(){
-    document.getElementById("nocreado").style = "display: none;";
-}

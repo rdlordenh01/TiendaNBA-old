@@ -109,31 +109,35 @@ function modTarjeta(){
     document.getElementById("selectMes").value!="Mes" & document.getElementById("selectYear").value!="Año" & document.getElementById("inputNumero").value.length==19 & 
     document.getElementById("inputCCV").value.length==3){
         modificar();
+    }else{
+        disable_creado();
+        enable_nocreado();
     }
 }
 
 function modificar(){
-    const params = new URLSearchParams("id="+document.getElementById('tarjetas').value+"&titular="+document.getElementById('inputNombre').value+
-    "&tarjeta="+document.getElementById('inputNumero').value+"&ccv="+document.getElementById('inputCCV').value+"&mes="+document.getElementById('selectMes').value+
-    "&ano="+document.getElementById('selectYear').value+"&id_user="+sessionStorage["id"]+"");
+    const params = new URLSearchParams("id="+document.getElementById('tarjetas').value+"&usuario="+document.getElementById('usuario').value+
+    "&titular="+document.getElementById('inputNombre').value+"&tarjeta="+document.getElementById('inputNumero').value+"&ccv="+document.getElementById('inputCCV').value+
+    "&mes="+document.getElementById('selectMes').value+"&ano="+document.getElementById('selectYear').value+"&id_user="+sessionStorage["id"]+"");
     fetch ('../../server/modCard.php', {
         method: 'POST',
         body: params
     })
     .then(data => data.json()) 
     .then(datos => {
-        if (datos.success) {
-            //mensaje correcto
-            alert("Funciona");
-        }else{
-            //mensaje de error
-            alert("No funciona");
+        console.log(datos);
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Tarjeta editada"){
+            disable_nocreado();
+            enable_creado();
+            sessionStorage["tarjeta"] = document.getElementById('tarjetas').selectedIndex;
+            sessionStorage["usuario"] = document.getElementById('usuario').selectedIndex;
+            cargar_usuarios();
+            //location.reload();
         }
-        //console.log(datos);
-        sessionStorage["tarjeta"] = document.getElementById('tarjetas').selectedIndex;
-        sessionStorage["usuario"] = document.getElementById('usuario').selectedIndex;
-        cargar_usuarios();
-        //location.reload();
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Tarjeta no editada"){
+            disable_creado();
+            enable_nocreado();
+        }
     });
 }
 
@@ -146,7 +150,14 @@ function delTarjeta(){
     .then(data => data.json()) 
     .then(datos => {
         console.log(datos);
-        //location.reload();
-        cargar_usuarios();
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Tarjeta eliminada"){
+            disable_nodel();
+            enable_del();
+            cargar_usuarios();
+        }
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Tarjeta no eliminada"){
+            disable_del();
+            enable_nodel();
+        }  
     });
 }

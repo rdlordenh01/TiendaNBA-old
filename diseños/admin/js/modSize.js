@@ -97,6 +97,9 @@ function rellenar(datos){
 function modTalla(){
     if(document.getElementById("tallas").value!="" & document.getElementById("almacenado").value!="" & document.getElementById("cantidad").value!=""){
         modificar();
+    }else{
+        disable_creado();
+        enable_nocreado();
     }
 }
 
@@ -110,9 +113,18 @@ function modificar(){
     .then(data => data.json()) 
     .then(datos => {
         console.log(datos);
-        sessionStorage["tallas"] = document.getElementById('tallas').selectedIndex;
-        sessionStorage["producto"] = document.getElementById('producto').selectedIndex;
-        location.reload();
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Talla editada"){
+            disable_nocreado();
+            enable_creado();
+            sessionStorage["tallas"] = document.getElementById('tallas').selectedIndex;
+            sessionStorage["producto"] = document.getElementById('producto').selectedIndex;
+            cargar_products();
+            //location.reload();
+        }
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Talla no editada"){
+            disable_creado();
+            enable_nocreado();
+        }
     });
 }
 
@@ -125,6 +137,15 @@ function delTalla(){
     .then(data => data.json()) 
     .then(datos => {
         console.log(datos);
-        location.reload();
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Talla eliminada"){
+            disable_nodel();
+            enable_del();
+            cargar_products();
+            //location.reload();
+        }
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Talla no eliminada"){
+            disable_del();
+            enable_nodel();
+        }
     });
 }

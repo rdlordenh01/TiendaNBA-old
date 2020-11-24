@@ -124,6 +124,9 @@ function modDireccion(){
     document.getElementById("codigo_postal").value.length==5 & document.getElementById("telefono").value!="" & document.getElementById("dni").value!="" & 
     document.getElementById("dni").value.length==9){
         modificar();
+    }else{
+        disable_creado();
+        enable_nocreado();
     }
 }
 
@@ -140,9 +143,18 @@ function modificar(){
     .then(data => data.json()) 
     .then(datos => {
         console.log(datos);
-        sessionStorage["direccion"] = document.getElementById('direcciones').selectedIndex;
-        sessionStorage["usuario"] = document.getElementById('usuario').selectedIndex;
-        location.reload();
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Direccion editada"){
+            disable_nocreado();
+            enable_creado();
+            sessionStorage["direccion"] = document.getElementById('direcciones').selectedIndex;
+            sessionStorage["usuario"] = document.getElementById('usuario').selectedIndex;
+            cargar_usuarios();
+            //location.reload();
+        }
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Direccion no editada"){
+            disable_creado();
+            enable_nocreado();
+        }
     });
 }
 
@@ -155,6 +167,15 @@ function delDireccion(){
     .then(data => data.json()) 
     .then(datos => {
         console.log(datos);
-        location.reload();
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Direccion eliminada"){
+            disable_nodel();
+            enable_del();
+            cargar_usuarios();
+            //location.reload();
+        }
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Direccion no eliminada"){
+            disable_creado();
+            enable_nocreado();
+        }
     });
 }

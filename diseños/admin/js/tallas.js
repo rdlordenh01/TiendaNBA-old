@@ -47,10 +47,10 @@ function clasificacion(id){
         }else{
             cabecera_tabla("Tallas de "+document.getElementById("producto").options[document.getElementById("producto").selectedIndex].text,columnas);
         }
-    })
-    .catch(err => {
-        console.log(err);
     });
+    /* .catch(err => {
+        console.log(err);
+    }); */
 }
 
 

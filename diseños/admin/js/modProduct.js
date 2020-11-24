@@ -150,6 +150,9 @@ function modProducto(){
     document.getElementById("categoria").value!="" & document.getElementById("subcategoria").value!="" & document.getElementById("descripcion").value!="" & 
     document.getElementById("precio").value!=""){
         modificar();
+    }else{
+        disable_creado();
+        enable_nocreado();
     }
 }
 
@@ -164,8 +167,17 @@ function modificar(){
     .then(data => data.json()) 
     .then(datos => {
         console.log(datos);
-        sessionStorage["producto"] = document.getElementById('producto').value;
-        location.reload();
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Producto editado"){
+            disable_nocreado();
+            enable_creado();
+            sessionStorage["producto"] = document.getElementById('producto').value;
+            cargar_products();
+            //location.reload();
+        }
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Producto no editado"){
+            disable_creado();
+            enable_nocreado();
+        }
     });
 }
 
@@ -178,6 +190,15 @@ function delProducto(){
     .then(data => data.json()) 
     .then(datos => {
         console.log(datos);
-        location.reload();
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Producto eliminado"){
+            disable_nodel();
+            enable_del();
+            cargar_products();
+            //location.reload();
+        }
+        if(datos['mensaje']!=undefined && (datos['mensaje']=="Producto no eliminado" | datos['mensaje']=="No hay id" | datos['mensaje']=="Tiene registros")){
+            disable_del();
+            enable_nodel();
+        }
     });
 }

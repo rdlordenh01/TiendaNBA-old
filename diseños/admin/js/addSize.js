@@ -101,22 +101,6 @@ function comprobar(){
     }
 }
 
-function enable_creado(){
-    document.getElementById("creado").style = "display: block;";
-}
-
-function enable_nocreado(){
-    document.getElementById("nocreado").style = "display: block;";
-}
-
-function disable_creado(){
-    document.getElementById("creado").style = "display: none;";
-}
-
-function disable_nocreado(){
-    document.getElementById("nocreado").style = "display: none;";
-}
-
 function crearTalla(){
     const params = new URLSearchParams("producto="+document.getElementById('producto').value+"&talla="+document.getElementById('talla').value+
     "&cantidad="+document.getElementById('cantidad').value+"&id_user="+sessionStorage["id"]+"");
@@ -132,7 +116,7 @@ function crearTalla(){
             enable_creado();
             vaciar_form();
         }
-        if(datos['mensaje']!=undefined && datos['mensaje']=="Ya existe la talla del producto"){
+        if(datos['mensaje']!=undefined && (datos['mensaje']=="Ya existe la talla del producto" | datos['mensaje']=="Nueva talla no registrada")){
             disable_creado();
             enable_nocreado();
         }

@@ -20,8 +20,8 @@ function clasificacion(){
             cabecera_tabla("TABLA DE REGISTROS",columnas);
             document.getElementById("paginas").innerHTML = "";
         }
-    })
-    .catch(err => {
-        console.log(err);
     });
+    /* .catch(err => {
+        console.log(err);
+    }); */
 }

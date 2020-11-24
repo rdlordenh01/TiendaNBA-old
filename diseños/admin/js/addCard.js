@@ -42,9 +42,6 @@ function dardealta(){
     (document.getElementById("inputNumero").value!="" & document.getElementById("inputNumero").value.length==19) & document.getElementById("inputNombre").value!="" & 
     (document.getElementById("inputCCV").value!="" & document.getElementById("inputCCV").value.length==3)){
         crearTarjeta();
-        vaciar_form();
-        disable_nocreado();
-        enable_creado();
     }
     else{
         disable_creado();
@@ -78,22 +75,6 @@ function comprobar(){
     }
 }
 
-function enable_creado(){
-    document.getElementById("creado").style = "display: block;";
-}
-
-function enable_nocreado(){
-    document.getElementById("nocreado").style = "display: block;";
-}
-
-function disable_creado(){
-    document.getElementById("creado").style = "display: none;";
-}
-
-function disable_nocreado(){
-    document.getElementById("nocreado").style = "display: none;";
-}
-
 function crearTarjeta(){
     const params = new URLSearchParams("usuario="+document.getElementById('usuario').value+"&titular="+document.getElementById('inputNombre').value+
     "&tarjeta="+document.getElementById('inputNumero').value+"&ccv="+document.getElementById('inputCCV').value+
@@ -102,9 +83,17 @@ function crearTarjeta(){
         method: 'POST',
         body: params
     })
-    
     .then(data => data.json()) 
     .then(datos => {
         console.log(datos);
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Nueva tarjeta registrada"){
+            vaciar_form();
+            disable_nocreado();
+            enable_creado();
+        }
+        if(datos['mensaje']!=undefined && (datos['mensaje']=="Nueva tarjeta no registrada" | datos['mensaje']=="No hay id")){
+            disable_creado();
+            enable_nocreado();
+        }
     });
 }

@@ -52,9 +52,6 @@ function dardealta(){
     document.getElementById("codigo_postal").value.length==5 & document.getElementById("dni").value!="" & document.getElementById("dni").value.length==9 & 
     document.getElementById("telefono").value!="" & document.getElementById("detalles").value!="" & document.getElementById("dni").className=="form-control border border-success"){
         crearDireccion();
-        vaciar_form();
-        disable_nocreado();
-        enable_creado();
     }
     else{
         disable_creado();
@@ -103,22 +100,6 @@ function comprobar(){
     }
 }
 
-function enable_creado(){
-    document.getElementById("creado").style = "display: block;";
-}
-
-function enable_nocreado(){
-    document.getElementById("nocreado").style = "display: block;";
-}
-
-function disable_creado(){
-    document.getElementById("creado").style = "display: none;";
-}
-
-function disable_nocreado(){
-    document.getElementById("nocreado").style = "display: none;";
-}
-
 function crearDireccion(){
     const params = new URLSearchParams("usuario="+document.getElementById('usuario').value+"&nombre="+document.getElementById('nombre').value+
     "&apellidos="+document.getElementById('apellidos').value+"&tipo_via="+document.getElementById('tipo_via').value+
@@ -130,9 +111,17 @@ function crearDireccion(){
         method: 'POST',
         body: params
     })
-    
     .then(data => data.json()) 
     .then(datos => {
         console.log(datos);
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Nueva direccion registrada"){
+            vaciar_form();
+            disable_nocreado();
+            enable_creado();
+        }
+        if(datos['mensaje']!=undefined && (datos['mensaje']=="Nueva direccion no registrada" | datos['mensaje']=="No hay id")){
+            disable_creado();
+            enable_nocreado();
+        }
     });
 }

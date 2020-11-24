@@ -226,3 +226,40 @@ if(sessionStorage.length==0){
     alert("La sesión ha expirado");
     menu(document.getElementById("m_logout").innerText);
 }
+
+
+//MOSTRAR Y OCULTAR MENSAJES DE ERROR Y EXITO
+
+function enable_creado(){
+    document.getElementById("creado").style = "display: block;";
+}
+
+function enable_nocreado(){
+    document.getElementById("nocreado").style = "display: block;";
+}
+
+function disable_creado(){
+    document.getElementById("creado").style = "display: none;";
+}
+
+function disable_nocreado(){
+    document.getElementById("nocreado").style = "display: none;";
+}
+
+function enable_del(){
+    document.getElementById("del").style = "display: block;";
+}
+
+function enable_nodel(){
+    document.getElementById("nodel").style = "display: block;";
+}
+
+function disable_del(){
+    document.getElementById("del").style = "display: none;";
+}
+
+function disable_nodel(){
+    document.getElementById("nodel").style = "display: none;";
+}
+
+
