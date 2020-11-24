@@ -230,12 +230,14 @@ if(sessionStorage.length==0){
 
 //MOSTRAR Y OCULTAR MENSAJES DE ERROR Y EXITO
 
-function enable_creado(){
+function enable_creado(mensaje){
     document.getElementById("creado").style = "display: block;";
+    document.getElementById("creado").innerHTML = mensaje;
 }
 
-function enable_nocreado(){
+function enable_nocreado(mensaje){
     document.getElementById("nocreado").style = "display: block;";
+    document.getElementById("nocreado").innerHTML = mensaje;
 }
 
 function disable_creado(){
@@ -246,12 +248,14 @@ function disable_nocreado(){
     document.getElementById("nocreado").style = "display: none;";
 }
 
-function enable_del(){
+function enable_del(mensaje){
     document.getElementById("del").style = "display: block;";
+    document.getElementById("del").innerHTML = mensaje;
 }
 
-function enable_nodel(){
+function enable_nodel(mensaje){
     document.getElementById("nodel").style = "display: block;";
+    document.getElementById("nodel").innerHTML = mensaje;
 }
 
 function disable_del(){

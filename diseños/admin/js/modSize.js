@@ -99,7 +99,7 @@ function modTalla(){
         modificar();
     }else{
         disable_creado();
-        enable_nocreado();
+        enable_nocreado("La talla no ha sido editada, rellene todos los campos");
     }
 }
 
@@ -115,15 +115,15 @@ function modificar(){
         console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Talla editada"){
             disable_nocreado();
-            enable_creado();
+            enable_creado(datos['mensaje']);
             sessionStorage["tallas"] = document.getElementById('tallas').selectedIndex;
             sessionStorage["producto"] = document.getElementById('producto').selectedIndex;
-            cargar_products();
+            //cargar_products();
             //location.reload();
         }
         if(datos['mensaje']!=undefined && datos['mensaje']=="Talla no editada"){
             disable_creado();
-            enable_nocreado();
+            enable_nocreado(datos['mensaje']);
         }
     });
 }
@@ -139,13 +139,13 @@ function delTalla(){
         console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Talla eliminada"){
             disable_nodel();
-            enable_del();
+            enable_del(datos['mensaje']);
             cargar_products();
             //location.reload();
         }
-        if(datos['mensaje']!=undefined && datos['mensaje']=="Talla no eliminada"){
+        if(datos['mensaje']!=undefined && (datos['mensaje']=="Talla no eliminada" | datos['mensaje']=="Tiene registros")){
             disable_del();
-            enable_nodel();
+            enable_nodel(datos['mensaje']);
         }
     });
 }

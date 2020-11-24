@@ -79,7 +79,7 @@ function modUsuario(){
         modificar();
     }else{
         disable_creado();
-        enable_nocreado();
+        enable_nocreado("El usuario no ha sido editado, rellene todos los campos");
     }
 }
 
@@ -96,14 +96,14 @@ function modificar(){
         console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Usuario editado"){
             disable_nocreado();
-            enable_creado();
+            enable_creado(datos['mensaje']);
             sessionStorage["usuario"] = document.getElementById('usuario').value;
-            cargar_users();
+            //cargar_users();
             //location.reload();
         }
         if(datos['mensaje']!=undefined && (datos['mensaje']=="Usuario no editado" | datos['mensaje']=="Ya existe el usuario")){
             disable_creado();
-            enable_nocreado();
+            enable_nocreado(datos['mensaje']);
         }
     });
 }
@@ -119,13 +119,13 @@ function delUsuario(){
         console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Usuario eliminado"){
             disable_nodel();
-            enable_del();
+            enable_del(datos['mensaje']);
             cargar_users();
             //location.reload();
         }
         if(datos['mensaje']!=undefined && datos['mensaje']=="Usuario no eliminado"){
             disable_del();
-            enable_nodel();
+            enable_nodel(datos['mensaje']);
         }
     });
 }

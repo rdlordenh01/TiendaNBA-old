@@ -200,43 +200,48 @@ class ApiTallas{
 
     function del($item){
         $talla = new Talla();
-        $res = $talla->delTalla($item);
-        if(!$res){
-            $this->exito('Talla no eliminada');
-            //METER REGISTRO
-            $registro = new Registro();
-            $max = $registro->maxID();
-            if($max->rowCount() == 1){
-                $row = $max->fetch();
-                $item2=array(
-                    "usuario" => $item['id_user'],
-                    "tipo" => "TALLA NO ELIMINADA"
-                );
-                $item3=array(
-                    "id" => $row['id']
-                );
-                $res = $registro->nuevoRegistro($item2,$item3);
+        $coincide = $talla->comprobarTalla($item['id']);
+        if($coincide->rowCount() == 0){
+            $res = $talla->delTalla($item);
+            if(!$res){
+                $this->exito('Talla no eliminada');
+                //METER REGISTRO
+                $registro = new Registro();
+                $max = $registro->maxID();
+                if($max->rowCount() == 1){
+                    $row = $max->fetch();
+                    $item2=array(
+                        "usuario" => $item['id_user'],
+                        "tipo" => "TALLA NO ELIMINADA"
+                    );
+                    $item3=array(
+                        "id" => $row['id']
+                    );
+                    $res = $registro->nuevoRegistro($item2,$item3);
+                }else{
+                    $this->error('No hay id del registro');
+                }
             }else{
-                $this->error('No hay id del registro');
+                $this->exito('Talla eliminada');
+                //METER REGISTRO
+                $registro = new Registro();
+                $max = $registro->maxID();
+                if($max->rowCount() == 1){
+                    $row = $max->fetch();
+                    $item2=array(
+                        "usuario" => $item['id_user'],
+                        "tipo" => "TALLA ELIMINADA"
+                    );
+                    $item3=array(
+                        "id" => $row['id']
+                    );
+                    $res = $registro->nuevoRegistro($item2,$item3);
+                }else{
+                    $this->error('No hay id del registro');
+                }
             }
         }else{
-            $this->exito('Talla eliminada');
-            //METER REGISTRO
-            $registro = new Registro();
-            $max = $registro->maxID();
-            if($max->rowCount() == 1){
-                $row = $max->fetch();
-                $item2=array(
-                    "usuario" => $item['id_user'],
-                    "tipo" => "TALLA ELIMINADA"
-                );
-                $item3=array(
-                    "id" => $row['id']
-                );
-                $res = $registro->nuevoRegistro($item2,$item3);
-            }else{
-                $this->error('No hay id del registro');
-            }
+            $this->error('Tiene registros');
         }
     }
 

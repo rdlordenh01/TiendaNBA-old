@@ -23,6 +23,12 @@ class Talla extends DB{
         return $query;
     }
 
+    function comprobarTalla($id){
+        $query = $this->connect()->prepare('SELECT * FROM filas WHERE talla = :id');
+        $query->execute(['id' => $id]);
+        return $query;
+    }
+
     function obtenTallas($id){
         $query = $this->connect()->prepare('SELECT p.nombre as nombre,t.talla as talla,t.cantidad as cantidad FROM tallas t, productos p WHERE t.producto=p.id AND p.id=:id 
         ORDER BY t.producto, CASE t.talla

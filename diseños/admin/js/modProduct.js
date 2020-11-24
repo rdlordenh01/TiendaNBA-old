@@ -152,7 +152,7 @@ function modProducto(){
         modificar();
     }else{
         disable_creado();
-        enable_nocreado();
+        enable_nocreado("El producto no ha sido editado, rellene todos los campos");
     }
 }
 
@@ -169,14 +169,14 @@ function modificar(){
         console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Producto editado"){
             disable_nocreado();
-            enable_creado();
+            enable_creado(datos['mensaje']);
             sessionStorage["producto"] = document.getElementById('producto').value;
             cargar_products();
             //location.reload();
         }
         if(datos['mensaje']!=undefined && datos['mensaje']=="Producto no editado"){
             disable_creado();
-            enable_nocreado();
+            enable_nocreado(datos['mensaje']);
         }
     });
 }
@@ -192,13 +192,13 @@ function delProducto(){
         console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Producto eliminado"){
             disable_nodel();
-            enable_del();
+            enable_del(datos['mensaje']);
             cargar_products();
             //location.reload();
         }
         if(datos['mensaje']!=undefined && (datos['mensaje']=="Producto no eliminado" | datos['mensaje']=="No hay id" | datos['mensaje']=="Tiene registros")){
             disable_del();
-            enable_nodel();
+            enable_nodel(datos['mensaje']);
         }
     });
 }

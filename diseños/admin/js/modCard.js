@@ -111,7 +111,7 @@ function modTarjeta(){
         modificar();
     }else{
         disable_creado();
-        enable_nocreado();
+        enable_nocreado("La tarjeta no ha sido editada, rellene todos los campos");
     }
 }
 
@@ -128,15 +128,15 @@ function modificar(){
         console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Tarjeta editada"){
             disable_nocreado();
-            enable_creado();
+            enable_creado(datos['mensaje']);
             sessionStorage["tarjeta"] = document.getElementById('tarjetas').selectedIndex;
             sessionStorage["usuario"] = document.getElementById('usuario').selectedIndex;
-            cargar_usuarios();
+            //cargar_usuarios();
             //location.reload();
         }
         if(datos['mensaje']!=undefined && datos['mensaje']=="Tarjeta no editada"){
             disable_creado();
-            enable_nocreado();
+            enable_nocreado(datos['mensaje']);
         }
     });
 }
@@ -152,12 +152,12 @@ function delTarjeta(){
         console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Tarjeta eliminada"){
             disable_nodel();
-            enable_del();
+            enable_del(datos['mensaje']);
             cargar_usuarios();
         }
         if(datos['mensaje']!=undefined && datos['mensaje']=="Tarjeta no eliminada"){
             disable_del();
-            enable_nodel();
+            enable_nodel(datos['mensaje']);
         }  
     });
 }

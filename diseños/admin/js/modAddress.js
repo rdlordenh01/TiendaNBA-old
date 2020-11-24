@@ -126,7 +126,7 @@ function modDireccion(){
         modificar();
     }else{
         disable_creado();
-        enable_nocreado();
+        enable_nocreado("La dirección no ha sido editada, rellene todos los campos");
     }
 }
 
@@ -145,15 +145,15 @@ function modificar(){
         console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Direccion editada"){
             disable_nocreado();
-            enable_creado();
+            enable_creado(datos['mensaje']);
             sessionStorage["direccion"] = document.getElementById('direcciones').selectedIndex;
             sessionStorage["usuario"] = document.getElementById('usuario').selectedIndex;
-            cargar_usuarios();
+            //cargar_usuarios();
             //location.reload();
         }
         if(datos['mensaje']!=undefined && datos['mensaje']=="Direccion no editada"){
             disable_creado();
-            enable_nocreado();
+            enable_nocreado(datos['mensaje']);
         }
     });
 }
@@ -169,13 +169,13 @@ function delDireccion(){
         console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Direccion eliminada"){
             disable_nodel();
-            enable_del();
+            enable_del(datos['mensaje']);
             cargar_usuarios();
             //location.reload();
         }
         if(datos['mensaje']!=undefined && datos['mensaje']=="Direccion no eliminada"){
             disable_creado();
-            enable_nocreado();
+            enable_nocreado(datos['mensaje']);
         }
     });
 }
