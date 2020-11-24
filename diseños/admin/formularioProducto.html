@@ -34,7 +34,7 @@
             <h3 class="text-center mt-3 mb-5">FORMULARIO DE PRODUCTO</h3>
             <form class="mt-5 p-5" action="../../server/addProduct.php" method="POST" enctype="multipart/form-data">
                 <div id="creado" role="alert">
-		            <input type="text" class="form-control" id="id_user" name="id_user" required>
+		            <input type="hidden" class="form-control" id="id_user" name="id_user" required>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
@@ -120,7 +120,7 @@
                 // Obtenemos la ruta temporal mediante el evento
                 var TmpPath = URL.createObjectURL(e.target.files[0]);
                 // Mostramos la ruta temporal
-                $('span').html(TmpPath);
+                //$('span').html(TmpPath);
                 $('img').attr('src', TmpPath);
             });
         });

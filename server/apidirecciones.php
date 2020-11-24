@@ -51,7 +51,7 @@ class ApiDirecciones{
     
                 $item=array(
                     "id" => $row['id'],
-                    "user" => $row['user'],
+                    "user" => $row['name'],
                     "nombre" => $row['nombre'],
                     "apellidos" => $row['apellidos'],
                     "tipo_via" => $row['tipo_via'],

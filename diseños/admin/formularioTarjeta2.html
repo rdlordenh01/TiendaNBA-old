@@ -31,113 +31,115 @@
         <nav id="sidebar" class="text-center"></nav>
 
         <!-- Page Content  -->
-        <div id="content" class="contenedor">
-            <h3 class="text-center mt-3 mb-5">FORMULARIO DE TARJETA</h3>
-            <!-- Tarjeta -->
-            <section class="tarjeta" id="tarjeta">
-                <div class="delantera">
-                    <div class="logo-marca" id="logo-marca">
-                        <img src="img/logos/visa.png" alt="">
-                    </div>
-                    <img src="img/chip-tarjeta.png" class="chip" alt="">
-                    <div class="datos">
-                        <div class="grupo" id="numero">
-                            <p class="label">Número Tarjeta</p>
-                            <p class="numero">#### #### #### ####</p>
+        <div id="content">
+            <div class="contenedor">
+                <h3 class="text-center mt-3 mb-5">FORMULARIO DE TARJETA</h3>
+                <!-- Tarjeta -->
+                <section class="tarjeta" id="tarjeta">
+                    <div class="delantera">
+                        <div class="logo-marca" id="logo-marca">
+                            <img src="img/logos/visa.png" alt="">
                         </div>
-                        <div class="flexbox">
-                            <div class="grupo" id="nombre">
-                                <p class="label">Nombre Tarjeta</p>
-                                <p class="nombre">XXXX XXXX</p>
+                        <img src="img/chip-tarjeta.png" class="chip" alt="">
+                        <div class="datos">
+                            <div class="grupo" id="numero">
+                                <p class="label">Número Tarjeta</p>
+                                <p class="numero">#### #### #### ####</p>
                             </div>
+                            <div class="flexbox">
+                                <div class="grupo" id="nombre">
+                                    <p class="label">Nombre Tarjeta</p>
+                                    <p class="nombre">XXXX XXXX</p>
+                                </div>
 
-                            <div class="grupo" id="expiracion">
-                                <p class="label">Expiracion</p>
-                                <p class="expiracion"><span class="mes">MM</span> / <span class="year">AA</span></p>
+                                <div class="grupo" id="expiracion">
+                                    <p class="label">Expiracion</p>
+                                    <p class="expiracion"><span class="mes">MM</span> / <span class="year">AA</span></p>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="trasera">
+                        <div class="barra-magnetica"></div>
+                        <div class="datos">
+                            <div class="grupo" id="firma">
+                                <p class="label">Firma</p>
+                                <div class="firma"><p></p></div>
+                            </div>
+                            <div class="grupo" id="ccv">
+                                <p class="label">CCV</p>
+                                <p class="ccv"></p>
+                            </div>
+                        </div>
+                        <p class="leyenda">Todos los derechos reservados al propietario de la tarjeta. Avise en caso de robo o substracción a una oficina del banco que emitio esta tarjeta</p>
+                        <a href="#" class="link-banco">www.asociaciondebancoseuropeos.com</a>
+                    </div>
+                </section>
+
+                <!-- Contenedor Boton Abrir Formulario -->
+                <div class="contenedor-btn">
+                    <button class="btn-abrir-formulario" id="btn-abrir-formulario">
+                        <i class="fas fa-plus"></i>
+                    </button>
                 </div>
 
-                <div class="trasera">
-                    <div class="barra-magnetica"></div>
-                    <div class="datos">
-                        <div class="grupo" id="firma">
-                            <p class="label">Firma</p>
-                            <div class="firma"><p></p></div>
+                <!-- Formulario -->
+                <form id="formulario-tarjeta" class="formulario-tarjeta">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label>Usuario: </label>
+                            <select id="usuario" class="form-control">
+                            </select>
                         </div>
-                        <div class="grupo" id="ccv">
-                            <p class="label">CCV</p>
-                            <p class="ccv"></p>
+                        <div class="form-group col-md-4">
+                            <label>Tarjetas: </label>
+                            <select id="tarjetas" class="form-control">
+                            </select>
                         </div>
                     </div>
-                    <p class="leyenda">Todos los derechos reservados al propietario de la tarjeta. Avise en caso de robo o substracción a una oficina del banco que emitio esta tarjeta</p>
-                    <a href="#" class="link-banco">www.asociaciondebancoseuropeos.com</a>
-                </div>
-            </section>
+                    <div class="grupo">
+                        <label for="inputNumero">Número Tarjeta</label>
+                        <input type="text" id="inputNumero" maxlength="19" autocomplete="off">
+                    </div>
+                    <div class="grupo">
+                        <label for="inputNombre">Nombre</label>
+                        <input type="text" id="inputNombre" maxlength="45" autocomplete="off">
+                    </div>
+                    <div class="flexbox">
+                        <div class="grupo expira">
+                            <label for="selectMes">Expiracion</label>
+                            <div class="flexbox">
+                                <div class="grupo-select">
+                                    <select name="mes" id="selectMes">
+                                        <option disabled selected>Mes</option>
+                                    </select>
+                                </div>
+                                <div class="grupo-select">
+                                    <select name="year" id="selectYear">
+                                        <option disabled selected>Año</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
 
-            <!-- Contenedor Boton Abrir Formulario -->
-            <div class="contenedor-btn">
-                <button class="btn-abrir-formulario" id="btn-abrir-formulario">
-                    <i class="fas fa-plus"></i>
-                </button>
+                        <div class="grupo ccv">
+                            <label for="inputCCV">CCV</label>
+                            <input type="text" id="inputCCV" maxlength="3">
+                        </div>
+                    </div>
+                    <div class="form-row text-center">
+                        <div class="form-group col-md-2"></div>
+                        <div class="form-group col-md-4">
+                            <input type="button" class="btn btn-primary" id="guardar" value="Guardar cambios">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <input type="button" class="btn btn-primary" id="eliminar" value="Borrar">
+                        </div>
+                        <div class="form-group col-md-2"></div>
+                    </div>
+                </form>
             </div>
-
-            <!-- Formulario -->
-            <form id="formulario-tarjeta" class="formulario-tarjeta">
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label>Usuario: </label>
-                        <select id="usuario" class="form-control">
-                        </select>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label>Tarjetas: </label>
-                        <select id="tarjetas" class="form-control">
-                        </select>
-                    </div>
-                </div>
-                <div class="grupo">
-                    <label for="inputNumero">Número Tarjeta</label>
-                    <input type="text" id="inputNumero" maxlength="19" autocomplete="off">
-                </div>
-                <div class="grupo">
-                    <label for="inputNombre">Nombre</label>
-                    <input type="text" id="inputNombre" maxlength="45" autocomplete="off">
-                </div>
-                <div class="flexbox">
-                    <div class="grupo expira">
-                        <label for="selectMes">Expiracion</label>
-                        <div class="flexbox">
-                            <div class="grupo-select">
-                                <select name="mes" id="selectMes">
-                                    <option disabled selected>Mes</option>
-                                </select>
-                            </div>
-                            <div class="grupo-select">
-                                <select name="year" id="selectYear">
-                                    <option disabled selected>Año</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="grupo ccv">
-                        <label for="inputCCV">CCV</label>
-                        <input type="text" id="inputCCV" maxlength="3">
-                    </div>
-                </div>
-                <div class="form-row text-center">
-                    <div class="form-group col-md-2"></div>
-                    <div class="form-group col-md-4">
-                        <input type="button" class="btn btn-primary" id="guardar" value="Guardar cambios">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <input type="button" class="btn btn-primary" id="eliminar" value="Borrar">
-                    </div>
-                    <div class="form-group col-md-2"></div>
-                </div>
-            </form>
         </div>
     </div>
     <script src="js/general.js"></script>

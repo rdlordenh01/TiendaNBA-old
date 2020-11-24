@@ -289,3 +289,7 @@ body {
 .formulario-tarjeta .btn-enviar:hover {
 	background: #1850b1;
 }
+
+.bg-conf{
+	background: #ddeefc;
+}

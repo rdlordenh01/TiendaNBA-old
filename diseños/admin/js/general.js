@@ -103,7 +103,7 @@ const sidebar = `<div class="sidebar-header">
 </li>
 </ul>`;
 
-const btnnav = `<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+const btnnav = `<nav class="navbar navbar-expand-lg bg-conf mb-4">
 <div class="container-fluid">
     <button type="button" id="sidebarCollapse" class="navbar-btn">
         <span></span>

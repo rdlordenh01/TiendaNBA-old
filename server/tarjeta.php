@@ -5,7 +5,7 @@ include_once 'db.php';
 class Tarjeta extends DB{
     
     function obtenerTarjetas(){
-        $query = $this->connect()->query('SELECT u.user as usuario, p.titular as titular, p.tarjeta as tarjeta, p.ccv as ccv, p.mes as mes, p.año as año FROM users u, pagos p WHERE u.id=p.usuario');
+        $query = $this->connect()->query('SELECT u.name as usuario, p.titular as titular, p.tarjeta as tarjeta, p.ccv as ccv, p.mes as mes, p.año as año FROM users u, pagos p WHERE u.id=p.usuario');
         return $query;
     }
 
@@ -16,7 +16,7 @@ class Tarjeta extends DB{
     }
 
     function obtenerTarjeta($id){
-        $query = $this->connect()->prepare('SELECT p.id, u.user, p.titular, p.tarjeta, p.ccv, p.mes, p.año FROM pagos p, users u WHERE p.usuario=u.id AND p.usuario=:id');
+        $query = $this->connect()->prepare('SELECT p.id, u.name as user, p.titular, p.tarjeta, p.ccv, p.mes, p.año FROM pagos p, users u WHERE p.usuario=u.id AND p.usuario=:id');
         $query->execute(['id' => $id]);
         return $query;
     }
