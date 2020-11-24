@@ -30,6 +30,9 @@ function cargar_pedidos(){
             titulo.innerHTML = "NO HAY PEDIDOS PENDIENTES";
             x.appendChild(titulo);
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -70,7 +73,11 @@ function realizarPedido(){
         for (i=0; i<array.length; i++) {
             quitarStockStore(array[i]['product_id'],array[i]['talla'],array[i]['cantidad']);
         }
-        location.reload();
+        cargar_pedidos();
+        //location.reload();
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -87,7 +94,11 @@ function cancelarPedido(){
         for (i=0; i<array.length; i++) {
             addStockVenta(array[i]['product_id'],array[i]['talla'],array[i]['cantidad']);
         }
-        location.reload();
+        cargar_pedidos();
+        //location.reload();
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -101,6 +112,9 @@ function quitarStockStore(id,talla,cantidad){  //quitar stock de almacen (stock 
     .then(data => data.json()) 
     .then(datos => {
         console.log(datos);
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -114,5 +128,8 @@ function addStockVenta(id,talla,cantidad){  //volver a añadir stock a la tienda
     .then(data => data.json()) 
     .then(datos => {
         console.log(datos);
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }

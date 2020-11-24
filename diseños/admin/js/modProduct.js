@@ -23,6 +23,9 @@ function cargar_equipos(){
             option.text = datos['equipos'][i]['name'];
             x.add(option);
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -40,6 +43,9 @@ function cargar_marcas(){
             option.text = datos['marcas'][i]['name'];
             x.add(option);
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -58,6 +64,9 @@ function cargar_categoria(){
             x.add(option);
         }
         cargar_subcategoria();
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -75,6 +84,9 @@ function cargar_subcategoria(){
             option.text = datos['categorias'][document.getElementById("categoria").selectedIndex]['subcategoria'][j]['name'];
             x.add(option);
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -107,6 +119,9 @@ function cargar_products(){
             option.text = "No hay productos";
             x.add(option);
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -130,6 +145,9 @@ function cargarform(id){
             document.getElementById("foto").src = "";
         }
         
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -178,6 +196,9 @@ function modificar(){
             disable_creado();
             enable_nocreado(datos['mensaje']);
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -200,5 +221,8 @@ function delProducto(){
             disable_del();
             enable_nodel(datos['mensaje']);
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }

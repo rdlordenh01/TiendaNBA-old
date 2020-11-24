@@ -16,25 +16,28 @@ function cargar_users(){
     fetch ('../../server/user.php?tipo=Cliente', {
         "method": "GET"
     })
-        .then(data => data.json()) 
-        .then(datos => {
-            console.log(datos);
-            var x = document.getElementById("usuario");
-            x.innerHTML = "";
-            if(datos['mensaje']!="No hay usuarios"){ 
-                for (i=0; i<datos['items'].length; i++) {
-                    var option = document.createElement("option");
-                    option.setAttribute("value", datos['items'][i]['id']);
-                    option.text = datos['items'][i]['user'];
-                    x.add(option);
-                }
-            }else{
+    .then(data => data.json()) 
+    .then(datos => {
+        console.log(datos);
+        var x = document.getElementById("usuario");
+        x.innerHTML = "";
+        if(datos['mensaje']!="No hay usuarios"){ 
+            for (i=0; i<datos['items'].length; i++) {
                 var option = document.createElement("option");
-                option.setAttribute("value", "");
-                option.text = "No hay usuarios";
+                option.setAttribute("value", datos['items'][i]['id']);
+                option.text = datos['items'][i]['user'];
                 x.add(option);
             }
-        });
+        }else{
+            var option = document.createElement("option");
+            option.setAttribute("value", "");
+            option.text = "No hay usuarios";
+            x.add(option);
+        }
+    })
+    .catch(err => {
+        //console.log(err);
+    });
 }
 
 function dardealta(){
@@ -95,5 +98,8 @@ function crearTarjeta(){
             disable_creado();
             enable_nocreado();
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }

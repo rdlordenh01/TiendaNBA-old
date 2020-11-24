@@ -36,6 +36,9 @@ function cargar_usuarios(){
             option.text = "";
             x.add(option);
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -69,6 +72,9 @@ function cargarselect(id){
             x.add(option);
             vaciar();
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -84,6 +90,9 @@ function cargarform(id){
         }else{
             //vaciar();
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -155,6 +164,9 @@ function modificar(){
             disable_creado();
             enable_nocreado(datos['mensaje']);
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -177,5 +189,8 @@ function delDireccion(){
             disable_creado();
             enable_nocreado(datos['mensaje']);
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }

@@ -7,27 +7,30 @@ function cargar_products(){
     fetch ('../../server/product.php', {
         "method": "GET"
     })
-        .then(data => data.json()) 
-        .then(datos => {
-            console.log(datos);
-            var x = document.getElementById("producto");
-            x.innerHTML = "";
-            if(datos['mensaje']!="No hay productos"){ 
-                for (i=0; i<datos['items'].length; i++) {
-                    var option = document.createElement("option");
-                    option.setAttribute("value", datos['items'][i]['id']);
-                    option.setAttribute("id", datos['items'][i]['id']);
-                    option.text = datos['items'][i]['nombre'];
-                    x.add(option);
-                }
-                clasificacion(document.getElementById("producto").value);
-            }else{
+    .then(data => data.json()) 
+    .then(datos => {
+        console.log(datos);
+        var x = document.getElementById("producto");
+        x.innerHTML = "";
+        if(datos['mensaje']!="No hay productos"){ 
+            for (i=0; i<datos['items'].length; i++) {
                 var option = document.createElement("option");
-                option.setAttribute("value", "");
-                option.text = "No hay productos";
+                option.setAttribute("value", datos['items'][i]['id']);
+                option.setAttribute("id", datos['items'][i]['id']);
+                option.text = datos['items'][i]['nombre'];
                 x.add(option);
             }
-        });
+            clasificacion(document.getElementById("producto").value);
+        }else{
+            var option = document.createElement("option");
+            option.setAttribute("value", "");
+            option.text = "No hay productos";
+            x.add(option);
+        }
+    })
+    .catch(err => {
+        //console.log(err);
+    });
 }
 
 function clasificacion(id){
@@ -47,10 +50,10 @@ function clasificacion(id){
         }else{
             cabecera_tabla("Tallas de "+document.getElementById("producto").options[document.getElementById("producto").selectedIndex].text,columnas);
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
-    /* .catch(err => {
-        console.log(err);
-    }); */
 }
 
 

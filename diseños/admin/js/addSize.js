@@ -13,65 +13,71 @@ function cargar_products(){
     fetch ('../../server/product.php', {
         "method": "GET"
     })
-        .then(data => data.json()) 
-        .then(datos => {
-            console.log(datos);
-            var x = document.getElementById("producto");
-            x.innerHTML = "";
-            if(datos['mensaje']!="No hay productos"){ 
-                var categorias = [];
-                var subcategorias = [];
-                for (i=0; i<datos['items'].length; i++) {
-                    var option = document.createElement("option");
-                    option.setAttribute("value", datos['items'][i]['id']);
-                    option.setAttribute("id", datos['items'][i]['id']);
-                    option.text = datos['items'][i]['nombre'];
-                    x.add(option);
-                    categorias.push(datos['items'][i]['categoria']);
-                    subcategorias.push(datos['items'][i]['subcategoria']);
-                }
-                if(sessionStorage["producto"]!=undefined & sessionStorage["producto"]!=""){
-                    id = sessionStorage["producto"];
-                    document.getElementById(id).selected = "true";
-                    sessionStorage.removeItem("producto");
-                }
-                sessionStorage["categorias"] = categorias;
-                sessionStorage["subcategorias"] = subcategorias;
-                
-                cargar_tallas();
-            }else{
+    .then(data => data.json()) 
+    .then(datos => {
+        console.log(datos);
+        var x = document.getElementById("producto");
+        x.innerHTML = "";
+        if(datos['mensaje']!="No hay productos"){ 
+            var categorias = [];
+            var subcategorias = [];
+            for (i=0; i<datos['items'].length; i++) {
                 var option = document.createElement("option");
-                option.setAttribute("value", "");
-                option.text = "No hay productos";
+                option.setAttribute("value", datos['items'][i]['id']);
+                option.setAttribute("id", datos['items'][i]['id']);
+                option.text = datos['items'][i]['nombre'];
                 x.add(option);
+                categorias.push(datos['items'][i]['categoria']);
+                subcategorias.push(datos['items'][i]['subcategoria']);
             }
-        });
+            if(sessionStorage["producto"]!=undefined & sessionStorage["producto"]!=""){
+                id = sessionStorage["producto"];
+                document.getElementById(id).selected = "true";
+                sessionStorage.removeItem("producto");
+            }
+            sessionStorage["categorias"] = categorias;
+            sessionStorage["subcategorias"] = subcategorias;
+            
+            cargar_tallas();
+        }else{
+            var option = document.createElement("option");
+            option.setAttribute("value", "");
+            option.text = "No hay productos";
+            x.add(option);
+        }
+    })
+    .catch(err => {
+        //console.log(err);
+    });
 }
 
 function cargar_tallas(){
     document.getElementById('talla').innerHTML="";
     fetch ('json/categorias.json')
-        .then(data => data.json()) 
-        .then(datos => {
-            console.log(datos);
-            var x = document.getElementById("talla");
-            x.innerHTML = "";
-            var categoria = sessionStorage['categorias'].split(",");
-            var subcategoria = sessionStorage['subcategorias'].split(",");
-            for (i=0; i<datos['categorias'].length; i++) {
-                for (j=0; j<datos['categorias'][i]['subcategoria'].length; j++) {
-                    if(datos['categorias'][i]['name']==categoria[document.getElementById('producto').selectedIndex] && 
-                    datos['categorias'][i]['subcategoria'][j]['name']==subcategoria[document.getElementById('producto').selectedIndex]){
-                        for (y=0; y<datos['categorias'][i]['subcategoria'][j]['tallas'].length; y++) {
-                            var option = document.createElement("option");
-                            option.setAttribute("value", datos['categorias'][i]['subcategoria'][j]['tallas'][y]['size']);
-                            option.text = datos['categorias'][i]['subcategoria'][j]['tallas'][y]['size'];
-                            x.add(option);
-                        } 
-                    }
+    .then(data => data.json()) 
+    .then(datos => {
+        console.log(datos);
+        var x = document.getElementById("talla");
+        x.innerHTML = "";
+        var categoria = sessionStorage['categorias'].split(",");
+        var subcategoria = sessionStorage['subcategorias'].split(",");
+        for (i=0; i<datos['categorias'].length; i++) {
+            for (j=0; j<datos['categorias'][i]['subcategoria'].length; j++) {
+                if(datos['categorias'][i]['name']==categoria[document.getElementById('producto').selectedIndex] && 
+                datos['categorias'][i]['subcategoria'][j]['name']==subcategoria[document.getElementById('producto').selectedIndex]){
+                    for (y=0; y<datos['categorias'][i]['subcategoria'][j]['tallas'].length; y++) {
+                        var option = document.createElement("option");
+                        option.setAttribute("value", datos['categorias'][i]['subcategoria'][j]['tallas'][y]['size']);
+                        option.text = datos['categorias'][i]['subcategoria'][j]['tallas'][y]['size'];
+                        x.add(option);
+                    } 
                 }
             }
-        });
+        }
+    })
+    .catch(err => {
+        //console.log(err);
+    });
 }
 
 function dardealta(){
@@ -120,5 +126,8 @@ function crearTalla(){
             disable_creado();
             enable_nocreado();
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }

@@ -58,5 +58,8 @@ function crearUser(){
             disable_creado();
             enable_nocreado();
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }

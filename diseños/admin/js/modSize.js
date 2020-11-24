@@ -36,7 +36,9 @@ function cargar_products(){
             option.text = "";
             x.add(option);
         }
-        
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -70,6 +72,9 @@ function cargarselect(id){
             document.getElementById("almacenado").value = "";
             document.getElementById("cantidad").value = "";
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -86,6 +91,9 @@ function cargarform(id){
             document.getElementById("almacenado").value = "";
             document.getElementById("cantidad").value = "";
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -125,6 +133,9 @@ function modificar(){
             disable_creado();
             enable_nocreado(datos['mensaje']);
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -147,5 +158,8 @@ function delTalla(){
             disable_del();
             enable_nodel(datos['mensaje']);
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }

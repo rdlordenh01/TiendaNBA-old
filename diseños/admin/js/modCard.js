@@ -37,6 +37,9 @@ function cargar_usuarios(){
             option.text = "No hay usuarios";
             x.add(option);
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -71,6 +74,9 @@ function cargarselect(id){
             option.text = "No hay tarjetas";
             x.add(option);
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -90,6 +96,9 @@ function cargarform(id){
             document.getElementById("selectMes").value = "Mes";
             document.getElementById("selectYear").value = "Año"; 
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -138,6 +147,9 @@ function modificar(){
             disable_creado();
             enable_nocreado(datos['mensaje']);
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }
 
@@ -159,5 +171,8 @@ function delTarjeta(){
             disable_del();
             enable_nodel(datos['mensaje']);
         }  
+    })
+    .catch(err => {
+        //console.log(err);
     });
 }

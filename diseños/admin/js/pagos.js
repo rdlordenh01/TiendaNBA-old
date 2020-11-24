@@ -6,27 +6,30 @@ function cargar_usuarios(){
     fetch ('../../server/user.php?tipo=Cliente', {
         "method": "GET"
     })
-        .then(data => data.json()) 
-        .then(datos => {
-            console.log(datos);
-            var x = document.getElementById("usuarios");
-            x.innerHTML = "";
-            if(datos['mensaje']!="No hay usuarios"){ 
-                for (i=0; i<datos['items'].length; i++) {
-                    var option = document.createElement("option");
-                    option.setAttribute("value", datos['items'][i]['id']);
-                    option.setAttribute("id", datos['items'][i]['id']);
-                    option.text = datos['items'][i]['user'];
-                    x.add(option);
-                }
-                clasificacion();
-            }else{
+    .then(data => data.json()) 
+    .then(datos => {
+        console.log(datos);
+        var x = document.getElementById("usuarios");
+        x.innerHTML = "";
+        if(datos['mensaje']!="No hay usuarios"){ 
+            for (i=0; i<datos['items'].length; i++) {
                 var option = document.createElement("option");
-                option.setAttribute("value", "");
-                option.text = "No hay usuarios";
+                option.setAttribute("value", datos['items'][i]['id']);
+                option.setAttribute("id", datos['items'][i]['id']);
+                option.text = datos['items'][i]['user'];
                 x.add(option);
             }
-        });
+            clasificacion();
+        }else{
+            var option = document.createElement("option");
+            option.setAttribute("value", "");
+            option.text = "No hay usuarios";
+            x.add(option);
+        }
+    })
+    .catch(err => {
+        //console.log(err);
+    });
 }
 
 function clasificacion(){
@@ -48,10 +51,10 @@ function clasificacion(){
             cabecera_tabla("",columnas);
             document.getElementById("paginas").innerHTML = "";
         }
+    })
+    .catch(err => {
+        //console.log(err);
     });
-    /* .catch(err => {
-        console.log(err);
-    }); */
 }
 
 document.getElementById("usuarios").addEventListener("change", clasificacion, false); 
