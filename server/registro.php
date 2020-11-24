@@ -5,12 +5,12 @@ include_once 'db.php';
 class Registro extends DB{
     
     function obtenerRegistros(){
-        $query = $this->connect()->query('SELECT r.tipo as tipoR, u.user as usuario, u.tipo as tipoU, r.created_at as fecha FROM registros r, users u WHERE r.usuario=u.id ORDER BY r.id DESC');
+        $query = $this->connect()->query('SELECT r.tipo as tipoR, u.name as usuario, u.tipo as tipoU, r.created_at as fecha FROM registros r, users u WHERE r.usuario=u.id ORDER BY r.id DESC');
         return $query;
     }
 
     function obtenerRegistro($user,$orden){
-        $query = $this->connect()->prepare('SELECT r.tipo as tipoR, u.user as usuario, u.tipo as tipoU, r.created_at as fecha FROM registros r, users u WHERE r.usuario=u.id AND usuario = :user ORDER BY r.id '.$orden);
+        $query = $this->connect()->prepare('SELECT r.tipo as tipoR, u.name as usuario, u.tipo as tipoU, r.created_at as fecha FROM registros r, users u WHERE r.usuario=u.id AND usuario = :user ORDER BY r.id '.$orden);
         $query->execute(['user' => $user]);
         return $query;
     }

@@ -1,4 +1,121 @@
 
+const sidebar = `<div class="sidebar-header">
+<h3>ADMIN DASHBOARD</h3>
+</div>
+<ul class="list-unstyled components">
+<li class="active">
+    <a id="m_inicio" href="#">Inicio</a>
+</li>
+<li class="active">
+    <a href="#usuariosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Usuarios</a>
+    <ul class="collapse list-unstyled" id="usuariosSubmenu">
+        <li>
+            <a id="m_usuarios1" href="#">Crear usuario</a>
+        </li>
+        <li>
+            <a id="m_usuarios2" href="#">Listado de usuarios</a>
+        </li>
+        <li>
+            <a id="m_usuarios3" href="#">Editar usuario</a>
+        </li>
+    </ul>
+</li>
+<li class="active">
+    <a href="#productosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Productos</a>
+    <ul class="collapse list-unstyled" id="productosSubmenu">
+        <li>
+            <a id="m_productos1" href="#">Crear producto</a>
+        </li>
+        <li>
+            <a id="m_productos2" href="#">Listado de productos</a>
+        </li>
+        <li>
+            <a id="m_productos3" href="#">Editar producto</a>
+        </li>
+    </ul>
+</li>
+<li class="active">
+    <a href="#tallasSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tallas</a>
+    <ul class="collapse list-unstyled" id="tallasSubmenu">
+        <li>
+            <a id="m_tallas1" href="#">Crear talla</a>
+        </li>
+        <li>
+            <a id="m_tallas2" href="#">Listado de tallas</a>
+        </li>
+        <li>
+            <a id="m_tallas3" href="#">Editar talla</a>
+        </li>
+    </ul>
+</li>
+<li class="active">
+    <a href="#pedidosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pedidos</a>
+    <ul class="collapse list-unstyled" id="pedidosSubmenu">
+        <li>
+            <a id="m_pedidos1" href="#">Realizar pedido</a>
+        </li>
+        <li>
+            <a id="m_pedidos2" href="#">Listado de pedidos</a>
+        </li>
+    </ul>
+</li>
+<li class="active">
+    <a href="#direccionesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Direcciones</a>
+    <ul class="collapse list-unstyled" id="direccionesSubmenu">
+        <li>
+            <a id="m_direcciones1" href="#">Crear dirección</a>
+        </li>
+        <li>
+            <a id="m_direcciones2" href="#">Listado de direcciones</a>
+        </li>
+        <li>
+            <a id="m_direcciones3" href="#">Editar dirección</a>
+        </li>
+    </ul>
+</li>
+<li class="active">
+    <a href="#pagosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tarjetas</a>
+    <ul class="collapse list-unstyled" id="pagosSubmenu">
+        <li>
+            <a id="m_pagos1" href="#">Crear tarjeta</a>
+        </li>
+        <li>
+            <a id="m_pagos2" href="#">Listado de tarjetas</a>
+        </li>
+        <li>
+            <a id="m_pagos3" href="#">Editar tarjeta</a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a href="#registrosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Registros</a>
+    <ul class="collapse list-unstyled" id="registrosSubmenu">
+        <li>
+            <a id="m_registros1" href="#">Registros de usuario</a>
+        </li>
+        <li>
+            <a id="m_registros2" href="#">Listado de registros</a>
+        </li>
+    </ul>
+</li>
+<li>
+    <a id="m_logout" href="#">Logout</a>
+</li>
+</ul>`;
+
+const btnnav = `<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+<div class="container-fluid">
+    <button type="button" id="sidebarCollapse" class="navbar-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</div>
+</nav>`;
+
+document.getElementById('sidebar').innerHTML = sidebar;
+document.getElementById('content').innerHTML = btnnav + document.getElementById('content').innerHTML;
+
 document.getElementById("m_inicio").addEventListener("click", function(){ menu(document.getElementById("m_inicio").innerText);},false);
 document.getElementById("m_usuarios1").addEventListener("click", function(){ menu(document.getElementById("m_usuarios1").innerText);},false);
 document.getElementById("m_usuarios2").addEventListener("click", function(){ menu(document.getElementById("m_usuarios2").innerText);},false);
@@ -21,8 +138,9 @@ document.getElementById("m_registros1").addEventListener("click", function(){ me
 document.getElementById("m_registros2").addEventListener("click", function(){ menu(document.getElementById("m_registros2").innerText);},false);
 document.getElementById("m_logout").addEventListener("click", function(){ menu(document.getElementById("m_logout").innerText);}, false); 
 
-function  menu(opcion){
 
+function  menu(opcion){
+    
     switch (opcion) {
         case "Inicio":
             window.location.href = "admin.html";
