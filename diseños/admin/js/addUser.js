@@ -48,7 +48,7 @@ function crearUser(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Nuevo usuario registrado"){
             vaciar_form();
             disable_nocreado();
@@ -60,6 +60,6 @@ function crearUser(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }

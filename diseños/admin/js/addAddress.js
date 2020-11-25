@@ -26,7 +26,7 @@ function cargar_users(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         var x = document.getElementById("usuario");
         x.innerHTML = "";
         if(datos['mensaje']!="No hay usuarios"){ 
@@ -44,7 +44,7 @@ function cargar_users(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
@@ -116,7 +116,7 @@ function crearDireccion(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Nueva direccion registrada"){
             vaciar_form();
             disable_nocreado();
@@ -128,6 +128,6 @@ function crearDireccion(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }

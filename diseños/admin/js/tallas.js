@@ -9,7 +9,7 @@ function cargar_products(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         var x = document.getElementById("producto");
         x.innerHTML = "";
         if(datos['mensaje']!="No hay productos"){ 
@@ -29,7 +29,7 @@ function cargar_products(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
@@ -39,7 +39,7 @@ function clasificacion(id){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         document.getElementById("principal").innerHTML="";
         rows = 10;
         columnas = ["Producto","Talla","Cantidad"];
@@ -52,7 +52,7 @@ function clasificacion(id){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 

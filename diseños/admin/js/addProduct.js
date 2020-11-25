@@ -21,7 +21,7 @@ function cargar_equipos(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
@@ -41,7 +41,7 @@ function cargar_marcas(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
@@ -62,7 +62,7 @@ function cargar_categoria(){
         cargar_subcategoria();
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
@@ -82,7 +82,7 @@ function cargar_subcategoria(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
@@ -90,23 +90,8 @@ function destinoIMG(){
     alert(document.getElementById('img').files[0].name);
     alert(document.getElementById('img').files[0].files);
     alert(document.getElementById('img').value);
-    console.log(document.getElementById('img').files);
+    //console.log(document.getElementById('img').files);
     alert(document.getElementById("foto").src);
 }
 
-/* function añadirProducto(){
-    const params = new URLSearchParams("nombre="+document.getElementById('nombre').value+"&categoria="+document.getElementById('categoria').value+
-    "&subcategoria="+document.getElementById('subcategoria').value+"&marca="+document.getElementById('marca').value+"&equipo="+document.getElementById('equipo').value+
-    "&descripcion="+document.getElementById('descripcion').value+"&precio="+document.getElementById('precio').value+"&imagen="+document.getElementById("foto").src+"");
-    params.append('file', document.getElementById('img').files[0]);
-    fetch ('../../server/addProduct2.php', {
-        method: 'POST',
-        body: params
-    })
-    
-    .then(data => data.json()) 
-    .then(datos => {
-        console.log(datos);
-        
-    });
-} */
+

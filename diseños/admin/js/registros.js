@@ -7,7 +7,7 @@ function clasificacion(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         document.getElementById("principal").innerHTML="";
         rows = 12;
         columnas = ["Tipo","Usuario","Tipo de Usuario","Fecha"]; 
@@ -22,6 +22,6 @@ function clasificacion(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }

@@ -13,7 +13,7 @@ function cargar_usuarios(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         var x = document.getElementById("usuario");
         x.innerHTML = "";
         if(datos['mensaje']!="No hay usuarios"){ 
@@ -38,7 +38,7 @@ function cargar_usuarios(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
@@ -48,7 +48,7 @@ function cargarselect(id){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
 
         var x = document.getElementById("direcciones");
         x.innerHTML = "";
@@ -74,7 +74,7 @@ function cargarselect(id){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
@@ -84,7 +84,7 @@ function cargarform(id){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         if(datos['mensaje']!="No hay direcciones"){
             rellenar(datos['items'][0]);
         }else{
@@ -92,7 +92,7 @@ function cargarform(id){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
@@ -151,7 +151,7 @@ function modificar(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Direccion editada"){
             disable_nocreado();
             enable_creado(datos['mensaje']);
@@ -166,7 +166,7 @@ function modificar(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
@@ -178,7 +178,7 @@ function delDireccion(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Direccion eliminada"){
             disable_nodel();
             enable_del(datos['mensaje']);
@@ -191,6 +191,6 @@ function delDireccion(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }

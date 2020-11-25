@@ -8,7 +8,7 @@ function cargar_usuarios(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         var x = document.getElementById("usuarios");
         x.innerHTML = "";
         if(datos['mensaje']!="No hay usuarios"){ 
@@ -28,7 +28,7 @@ function cargar_usuarios(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
@@ -38,7 +38,7 @@ function clasificacion(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         document.getElementById("principal").innerHTML="";
         rows = 10;
         columnas = ["Usuario","Titular","Tarjeta","CCV","Mes","Año"];
@@ -53,7 +53,7 @@ function clasificacion(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 

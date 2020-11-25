@@ -7,7 +7,7 @@ function clasificacion(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         document.getElementById("principal").innerHTML="";
         rows = 4;
         columnas = ["","Nombre","Equipo","Marca","Categoria","Subcategoria","Descripción","Precio"];
@@ -22,6 +22,6 @@ function clasificacion(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }

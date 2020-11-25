@@ -11,7 +11,7 @@ function cargar_pedidos(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         if(datos['mensaje']!="No hay pedidos"){ 
             var x = document.getElementById("pedidos");
             x.innerHTML = "";
@@ -32,7 +32,7 @@ function cargar_pedidos(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
@@ -42,7 +42,7 @@ function crearTabla(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         document.getElementById("principal").innerHTML="";
         rows = 9999; //valor alto cuando pueden ser muchos
         columnas = ["","Nombre producto","Talla","Cantidad","Precio","Total"];
@@ -68,7 +68,7 @@ function realizarPedido(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         var array = JSON.parse(sessionStorage['array_stocks']);
         for (i=0; i<array.length; i++) {
             quitarStockStore(array[i]['product_id'],array[i]['talla'],array[i]['cantidad']);
@@ -77,7 +77,7 @@ function realizarPedido(){
         //location.reload();
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
@@ -89,7 +89,7 @@ function cancelarPedido(){
     })  
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         var array = JSON.parse(sessionStorage['array_stocks']);
         for (i=0; i<array.length; i++) {
             addStockVenta(array[i]['product_id'],array[i]['talla'],array[i]['cantidad']);
@@ -98,12 +98,11 @@ function cancelarPedido(){
         //location.reload();
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
 function quitarStockStore(id,talla,cantidad){  //quitar stock de almacen (stock disponible)
-    console.log("id="+id+"&talla="+talla+"&almacenado="+cantidad);
     const params = new URLSearchParams("id="+id+"&talla="+talla+"&almacenado="+cantidad);
     fetch ('../../server/modStock.php', {
         method: 'POST',
@@ -111,15 +110,14 @@ function quitarStockStore(id,talla,cantidad){  //quitar stock de almacen (stock 
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
 function addStockVenta(id,talla,cantidad){  //volver a añadir stock a la tienda
-    console.log("id="+id+"&talla="+talla+"&almacenado="+cantidad);
     const params = new URLSearchParams("id="+id+"&talla="+talla+"&cantidad="+cantidad);
     fetch ('../../server/modStock.php', {
         method: 'POST',
@@ -127,9 +125,9 @@ function addStockVenta(id,talla,cantidad){  //volver a añadir stock a la tienda
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }

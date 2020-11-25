@@ -15,7 +15,7 @@ function cargar_products(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         var x = document.getElementById("producto");
         x.innerHTML = "";
         if(datos['mensaje']!="No hay productos"){ 
@@ -47,7 +47,7 @@ function cargar_products(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
@@ -56,7 +56,7 @@ function cargar_tallas(){
     fetch ('json/categorias.json')
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         var x = document.getElementById("talla");
         x.innerHTML = "";
         var categoria = sessionStorage['categorias'].split(",");
@@ -76,7 +76,7 @@ function cargar_tallas(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
@@ -116,7 +116,7 @@ function crearTalla(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Nueva talla registrada"){
             disable_nocreado();
             enable_creado();
@@ -128,6 +128,6 @@ function crearTalla(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }

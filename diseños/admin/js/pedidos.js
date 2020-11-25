@@ -9,7 +9,7 @@ function pedidos(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         document.getElementById("principal").innerHTML="";
         rows = 10;
         columnas = ["Id","Usuario","Total","Fecha"];
@@ -24,6 +24,6 @@ function pedidos(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }

@@ -13,7 +13,7 @@ function cargar_usuarios(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
 
         var x = document.getElementById("usuario");
         x.innerHTML = "";
@@ -39,7 +39,7 @@ function cargar_usuarios(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
@@ -49,7 +49,7 @@ function cargarselect(id){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
 
         var x = document.getElementById("tarjetas");
         x.innerHTML = "";
@@ -76,7 +76,7 @@ function cargarselect(id){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
@@ -86,7 +86,7 @@ function cargarform(id){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         if(datos['mensaje']!="No hay tarjetas"){
             rellenar(datos['items'][0]);
         }else{
@@ -98,7 +98,7 @@ function cargarform(id){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
@@ -134,13 +134,13 @@ function modificar(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Tarjeta editada"){
             disable_nocreado();
             enable_creado(datos['mensaje']);
             sessionStorage["tarjeta"] = document.getElementById('tarjetas').selectedIndex;
             sessionStorage["usuario"] = document.getElementById('usuario').selectedIndex;
-            //cargar_usuarios();
+            cargar_usuarios();
             //location.reload();
         }
         if(datos['mensaje']!=undefined && datos['mensaje']=="Tarjeta no editada"){
@@ -149,7 +149,7 @@ function modificar(){
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
@@ -161,7 +161,7 @@ function delTarjeta(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Tarjeta eliminada"){
             disable_nodel();
             enable_del(datos['mensaje']);
@@ -173,6 +173,6 @@ function delTarjeta(){
         }  
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }

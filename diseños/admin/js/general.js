@@ -211,13 +211,13 @@ function  menu(opcion){
             .then(data => data.json()) 
             .then(datos => {
                 console.log(datos);
+            })
+            .catch(err => {
+                console.log(err);
             });
             sessionStorage.clear();
             window.location.href = "../index.html";
             break;
-        /* default:
-            alert("Está dentro del inicio");
-            break; */
     }
 }
 
