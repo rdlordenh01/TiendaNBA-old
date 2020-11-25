@@ -102,16 +102,16 @@ function modificar(){
             disable_nocreado();
             enable_creado(datos['mensaje']);
             sessionStorage["usuario"] = document.getElementById('usuario').value;
-            //cargar_users();
+            cargar_users();
             //location.reload();
         }
-        if(datos['mensaje']!=undefined && (datos['mensaje']=="Usuario no editado" | datos['mensaje']=="Ya existe el usuario")){
+        if(datos['mensaje']!=undefined && (datos['mensaje']=="Usuario no editado" | datos['mensaje']=="Ya existe el usuario" | datos['mensaje']=="No hay cambios en usuario")){
             disable_creado();
             enable_nocreado(datos['mensaje']);
         }
     })
     .catch(err => {
-        //console.log(err);
+        console.log(err);
     });
 }
 
@@ -124,13 +124,13 @@ function delUsuario(){
     .then(data => data.json()) 
     .then(datos => {
         console.log(datos);
-        if(datos['mensaje']!=undefined && datos['mensaje']=="Usuario eliminado"){
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Usuario cambiado"){
             disable_nodel();
             enable_del(datos['mensaje']);
             cargar_users();
             //location.reload();
         }
-        if(datos['mensaje']!=undefined && datos['mensaje']=="Usuario no eliminado"){
+        if(datos['mensaje']!=undefined && datos['mensaje']=="Usuario no cambiado"){
             disable_del();
             enable_nodel(datos['mensaje']);
         }

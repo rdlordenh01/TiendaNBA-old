@@ -27,6 +27,18 @@ class Usuario extends DB{
         return $query;
     }
 
+    function obtenLogin($user,$passwd){
+        $query = $this->connect()->prepare('SELECT * FROM users WHERE name = :user AND password = :passwd AND tipo = "Administrador"');
+        $query->execute(['user' => $user, 'passwd' => $passwd]);
+        return $query;
+    }
+
+    function obtenLogin2($user,$email){
+        $query = $this->connect()->prepare('SELECT * FROM users WHERE name = :user AND email = :email AND tipo = "Administrador"');
+        $query->execute(['user' => $user, 'email' => $email]);
+        return $query;
+    }
+
     function maxID(){
         $query = $this->connect()->query('SELECT MAX(id) as id FROM users');
         return $query;
