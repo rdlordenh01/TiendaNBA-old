@@ -82,21 +82,6 @@ class ApiPedidos{
         }
     }
 
-    /* function add($item){
-        $pedido = new Pedido();
-        $max = $pedido->maxID();
-        if($max->rowCount() == 1){
-            $row = $max->fetch();
-        
-            $item1=array(
-                "id" => $row['id']
-            );
-        }
-
-        $res = $pedido->nuevoPedido($item,$item1);
-        $this->exito('Nuevo pedido registrado');
-    } */
-
     function mod($item){
         $pedido = new Pedido();
         $res = $pedido->modPedido($item);

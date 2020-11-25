@@ -6,7 +6,6 @@ include_once 'registro.php';
 class ApiProductos{
 
     private $imagen;
-    //private $error;
 
     function getAll(){
         $producto = new Producto();
@@ -198,7 +197,6 @@ class ApiProductos{
         $producto = new Producto();
         $results = $producto->comprobarDel($item['id']);
         if($results->rowCount() == 0){
-            //$this->exito('No tiene registros, se puede borrar');
             $imagen = $producto->buscarIMG($item['id']);
             if($imagen->rowCount() == 1){
                 $row = $imagen->fetch();

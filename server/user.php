@@ -5,15 +5,8 @@
 
     if(isset($_GET['user']) && isset($_GET['passwd'])){
         $user = $_GET['user'];
-        //$passwd = $_GET['passwd'];
-
         $passwd = hash_hmac("sha512", $_GET['passwd'], $_GET['passwd']);
         $api->login($user,$passwd);
-        /* if(is_numeric($id)){
-            $api->getById($id);
-        }else{
-            $api->error('El id es incorrecto');
-        } */
     }else if(isset($_GET['id'])){
         $id = $_GET['id'];
 

@@ -151,7 +151,6 @@ class ApiTallas{
                 }
             }
         }else{
-            //$this->exito('Ya tiene el producto '.$item['producto'].' con la talla '.$item['talla']);
             $this->exito('Ya existe la talla del producto');
         }
     }

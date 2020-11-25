@@ -8,7 +8,6 @@
         && isset($_POST['ano'])){
             
             $tarjeta =str_replace(' ', '', $_POST['tarjeta']);
-            //echo json_encode(array('mensaje' => $cadena));
 
             $item = array(
                 "usuario" => $_POST['usuario'],

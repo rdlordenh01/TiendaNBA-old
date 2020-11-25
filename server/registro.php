@@ -23,7 +23,6 @@ class Registro extends DB{
     function nuevoRegistro($registro,$max){
         $query = $this->connect()->prepare('INSERT INTO registros (id,tipo,usuario,created_at) VALUES (:id,:tipo,:usuario,NOW())');
         $query->execute(['id' => $max['id']+1, 'tipo' => $registro['tipo'], 'usuario' => $registro['usuario']]);
-        //print_r($query);
         return $query;
     }
 

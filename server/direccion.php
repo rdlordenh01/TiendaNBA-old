@@ -10,14 +10,12 @@ class Direccion extends DB{
     }
 
     function obtenDireccion($id){
-        //'SELECT * FROM direcciones WHERE id = :id'
         $query = $this->connect()->prepare('SELECT * FROM direcciones WHERE id = :id');
         $query->execute(['id' => $id]);
         return $query;
     }
 
     function obtenerDireccion($id){
-        //'SELECT * FROM direcciones WHERE id = :id'
         $query = $this->connect()->prepare('SELECT d.id, u.name, d.nombre, d.apellidos, d.tipo_via, d.direccion, d.numero, d.detalles, d.ciudad, d.localidad, d.codigo_postal, d.telefono, d.dni FROM direcciones d, users u WHERE d.usuario=u.id AND d.usuario=:id');
         $query->execute(['id' => $id]);
         return $query;

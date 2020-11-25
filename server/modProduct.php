@@ -19,11 +19,7 @@
                 'id_user' => $_POST['id_user']
             );
             $api->mod($item); 
-            //header ("Location: ../diseños/formularioProducto.html");
-            //print_r($item);
-        //}else{
-            //$api->error('Error con el archivo: ' . $api->getError());
-        //}
+            
     }else{
         $api->error('Error al llamar a la API');
     }

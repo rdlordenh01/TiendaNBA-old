@@ -21,7 +21,6 @@
                 "dni" => $_POST['dni'],
                 'id_user' => $_POST['id_user']
             );
-            //print_r($item);
             $api->add($item);
     }else{
         $api->error('Error al llamar a la API');
