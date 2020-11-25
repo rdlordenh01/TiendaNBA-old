@@ -7,6 +7,7 @@ document.getElementById("tallas").addEventListener("change", function(){ cargarf
 
 cargar_products();
 
+//cargar productos
 function cargar_products(){
     fetch ('../../server/product.php', {
         "method": "GET"
@@ -42,6 +43,7 @@ function cargar_products(){
     });
 }
 
+//cargar tallas al select
 function cargarselect(id){
     fetch ('../../server/size.php?prod2='+id, {
         "method": "GET"
@@ -78,6 +80,7 @@ function cargarselect(id){
     });
 }
 
+//cargar datos en campos del form
 function cargarform(id){
     fetch ('../../server/size.php?id='+id, {
         "method": "GET"
@@ -97,11 +100,13 @@ function cargarform(id){
     });
 }
 
+//rellenar campos del form
 function rellenar(datos){
     document.getElementById("almacenado").value = datos['almacenado'];
     document.getElementById("cantidad").value = datos['cantidad'];
 }
 
+//comprobacion
 function modTalla(){
     if(document.getElementById("tallas").value!="" & document.getElementById("almacenado").value!="" & document.getElementById("cantidad").value!=""){
         modificar();
@@ -111,6 +116,7 @@ function modTalla(){
     }
 }
 
+//modificar talla
 function modificar(){
     const params = new URLSearchParams("id="+document.getElementById('tallas').value+"&talla="+document.getElementById("tallas").options[document.getElementById("tallas").selectedIndex].text+
     "&cantidad="+document.getElementById('cantidad').value+"&almacenado="+document.getElementById('almacenado').value+"&id_user="+sessionStorage["id"]+"");
@@ -139,6 +145,7 @@ function modificar(){
     });
 }
 
+//borrar talla
 function delTalla(){
     const params = new URLSearchParams("id="+document.getElementById('tallas').value+"&id_user="+sessionStorage["id"]+"");
     fetch ('../../server/delSize.php', {

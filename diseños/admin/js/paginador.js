@@ -3,6 +3,7 @@
 /* ---- CODIGO DE PAGINACIÓN ---- */
 /* ------------------------------ */
 
+//crear paginacion
 function paginar(resul,campos,rows){
     document.getElementById("paginas").innerHTML = "";
     sessionStorage['pagina']=1;
@@ -65,6 +66,7 @@ function paginar(resul,campos,rows){
     }
 }
 
+//cambiar de pagina
 function cambiar_filas(cont,campos,rows){
     if(cont=='anterior'){
         cont = parseInt(sessionStorage['pagina'])-1;
@@ -101,13 +103,7 @@ function cambiar_filas(cont,campos,rows){
     navegadores();
 }
 
-function cambiar_ruta(){
-    number = parseInt(sessionStorage['pagina']) - 1;
-    identificador = "pagina" + number.toString();
-    console.log(identificador);
-    document.getElementById("pagina"+sessionStorage['pagina']).click();
-}
-
+//formatear opciones paginador
 function navegadores(){
     if(parseInt(sessionStorage['pagina'])==parseInt(sessionStorage['maxpagina']) && parseInt(sessionStorage['pagina'])==1){
         document.getElementById("li_siguiente").className = "page-item disabled";
@@ -141,6 +137,7 @@ function navegadores(){
 /* ---- CODIGO DE TABLAS ---- */
 /* -------------------------- */
 
+//crear tabla 
 function conferencias(titulo,datos,campos,row,columnas){
     cabecera_tabla(titulo,columnas);
     if(row<datos.length){
@@ -157,6 +154,7 @@ function conferencias(titulo,datos,campos,row,columnas){
     }
 }
 
+//crear cabecera en tabla
 function cabecera_tabla(tipo,titulos){
     var div = document.getElementById("principal");
     if(tipo!=""){
@@ -185,6 +183,7 @@ function cabecera_tabla(tipo,titulos){
     div.appendChild(tabla);
 }
 
+//crear fila en tabla
 function crear_fila(info,num){
     var tbody = document.getElementById("rellenar");
     var hilera = document.createElement("tr");

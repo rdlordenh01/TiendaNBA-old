@@ -5,6 +5,7 @@ cargar_categoria();
 cargar_marcas();
 cargar_equipos();
 
+//cargar equipos
 function cargar_equipos(){
     document.getElementById('equipo').innerHTML="";
     fetch ('json/equipos.json')
@@ -25,6 +26,7 @@ function cargar_equipos(){
     });
 }
 
+//cargar marcas
 function cargar_marcas(){
     document.getElementById('marca').innerHTML="";
     fetch ('json/marcas.json')
@@ -45,6 +47,7 @@ function cargar_marcas(){
     });
 }
 
+//cargar categorias
 function cargar_categoria(){
     document.getElementById('categoria').innerHTML="";
     fetch ('json/categorias.json')
@@ -66,6 +69,7 @@ function cargar_categoria(){
     });
 }
 
+//cargar subcategorias
 function cargar_subcategoria(){
     document.getElementById('subcategoria').innerHTML="";
     fetch ('json/categorias.json')
@@ -84,14 +88,6 @@ function cargar_subcategoria(){
     .catch(err => {
         console.log(err);
     });
-}
-
-function destinoIMG(){
-    alert(document.getElementById('img').files[0].name);
-    alert(document.getElementById('img').files[0].files);
-    alert(document.getElementById('img').value);
-    //console.log(document.getElementById('img').files);
-    alert(document.getElementById("foto").src);
 }
 
 

@@ -138,8 +138,8 @@ document.getElementById("m_registros1").addEventListener("click", function(){ me
 document.getElementById("m_registros2").addEventListener("click", function(){ menu(document.getElementById("m_registros2").innerText);},false);
 document.getElementById("m_logout").addEventListener("click", function(){ menu(document.getElementById("m_logout").innerText);}, false); 
 
-
-function  menu(opcion){
+//menu de opciones del nav
+function menu(opcion){
     
     switch (opcion) {
         case "Inicio":

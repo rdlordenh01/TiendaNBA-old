@@ -1,6 +1,7 @@
 
 document.getElementById("btnCard").addEventListener("click", dardealta, false);
 
+//vaciar campos del form
 function vaciar_form(){
     document.getElementById("usuario").selectedIndex = "0";
     document.getElementById("selectMes").selectedIndex = "Mes";
@@ -12,6 +13,7 @@ function vaciar_form(){
 
 cargar_users();
 
+//cargar usuarios
 function cargar_users(){
     fetch ('../../server/user.php?tipo=Cliente', {
         "method": "GET"
@@ -40,6 +42,7 @@ function cargar_users(){
     });
 }
 
+//comprobacion
 function dardealta(){
     if(document.getElementById("usuario").value!="" & document.getElementById("selectMes").value!="Mes" & document.getElementById("selectYear").value!="Año" & 
     (document.getElementById("inputNumero").value!="" & document.getElementById("inputNumero").value.length==19) & document.getElementById("inputNombre").value!="" & 
@@ -53,6 +56,7 @@ function dardealta(){
     }
 }
 
+//alert de comprobacion
 function comprobar(){
     mensaje = "Los siguientes campos están vacíos:";
     if(document.getElementById("usuario").value==""){
@@ -78,6 +82,7 @@ function comprobar(){
     }
 }
 
+//crear tarjeta
 function crearTarjeta(){
     const params = new URLSearchParams("usuario="+document.getElementById('usuario').value+"&titular="+document.getElementById('inputNombre').value+
     "&tarjeta="+document.getElementById('inputNumero').value+"&ccv="+document.getElementById('inputCCV').value+

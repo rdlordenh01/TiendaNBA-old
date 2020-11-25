@@ -5,6 +5,7 @@ document.getElementById("pedidos").addEventListener("change", function(){ crearT
 
 cargar_pedidos();
 
+//cargar pedidos
 function cargar_pedidos(){
     fetch ('../../server/order.php', {
         "method": "GET"
@@ -36,6 +37,7 @@ function cargar_pedidos(){
     });
 }
 
+//generar tabla
 function crearTabla(){
     fetch("../../server/order.php?id="+ document.getElementById("pedidos").value, {
         "method": "GET"
@@ -60,6 +62,7 @@ function crearTabla(){
     });
 }
 
+//realizar pedido
 function realizarPedido(){
     const params = new URLSearchParams("id="+document.getElementById('pedidos').value+"&estado=Completado");
     fetch ('../../server/modOrder.php', {
@@ -81,6 +84,7 @@ function realizarPedido(){
     });
 }
 
+//cancelar pedido
 function cancelarPedido(){
     const params = new URLSearchParams("id="+document.getElementById('pedidos').value+"&estado=Cancelado");
     fetch ('../../server/modOrder.php', {
@@ -102,6 +106,7 @@ function cancelarPedido(){
     });
 }
 
+//quitar stock de almacen
 function quitarStockStore(id,talla,cantidad){  //quitar stock de almacen (stock disponible)
     const params = new URLSearchParams("id="+id+"&talla="+talla+"&almacenado="+cantidad);
     fetch ('../../server/modStock.php', {
@@ -117,6 +122,7 @@ function quitarStockStore(id,talla,cantidad){  //quitar stock de almacen (stock 
     });
 }
 
+//añadir stock de tienda
 function addStockVenta(id,talla,cantidad){  //volver a añadir stock a la tienda
     const params = new URLSearchParams("id="+id+"&talla="+talla+"&cantidad="+cantidad);
     fetch ('../../server/modStock.php', {

@@ -2,6 +2,7 @@
 document.getElementById("btnTalla").addEventListener("click", dardealta, false);
 document.getElementById("producto").addEventListener("change", cargar_tallas, false);
 
+//vaciar campos de form
 function vaciar_form(){
     document.getElementById("talla").selectedIndex = 0;
     document.getElementById("cantidad").value = "";
@@ -9,6 +10,7 @@ function vaciar_form(){
 
 cargar_products();
 
+//cargar productos
 function cargar_products(){
     fetch ('../../server/product.php', {
         "method": "GET"
@@ -51,6 +53,7 @@ function cargar_products(){
     });
 }
 
+//cargar tallas
 function cargar_tallas(){
     document.getElementById('talla').innerHTML="";
     fetch ('json/categorias.json')
@@ -80,6 +83,7 @@ function cargar_tallas(){
     });
 }
 
+//comprobacion
 function dardealta(){
     if(document.getElementById("producto").value!="" & document.getElementById("talla").value!="" & document.getElementById("cantidad").value!=""){
         crearTalla();
@@ -91,6 +95,7 @@ function dardealta(){
     }
 }
 
+//alert de comprobacion
 function comprobar(){
     mensaje = "Los siguientes campos están vacíos:";
     if(document.getElementById("producto").value==""){
@@ -107,6 +112,7 @@ function comprobar(){
     }
 }
 
+//crear talla
 function crearTalla(){
     const params = new URLSearchParams("producto="+document.getElementById('producto').value+"&talla="+document.getElementById('talla').value+
     "&cantidad="+document.getElementById('cantidad').value+"&id_user="+sessionStorage["id"]+"");

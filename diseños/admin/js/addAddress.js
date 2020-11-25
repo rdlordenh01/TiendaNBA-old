@@ -1,6 +1,7 @@
 
 document.getElementById("btnDireccion").addEventListener("click", dardealta, false);
 
+//vaciar campos de form
 function vaciar_form(){
     document.getElementById("usuario").selectedIndex = "0";
     document.getElementById("nombre").value = "";
@@ -20,6 +21,7 @@ function vaciar_form(){
 
 cargar_users();
 
+//cargar usuarios
 function cargar_users(){
     fetch ('../../server/user.php?tipo=Cliente', {
         "method": "GET"
@@ -48,6 +50,7 @@ function cargar_users(){
     });
 }
 
+//comprobacion para dar de alta
 function dardealta(){
     if(document.getElementById("usuario").value!="" & document.getElementById("nombre").value!="" & document.getElementById("apellidos").value!="" & 
     document.getElementById("tipo_via").value!="" & document.getElementById("direccion").value!="" & document.getElementById("numero").value!="" &
@@ -63,6 +66,7 @@ function dardealta(){
     }
 } 
 
+//alert de comprobacion
 function comprobar(){
     mensaje = "Los siguientes campos están vacíos:";
     if(document.getElementById("usuario").value==""){
@@ -103,6 +107,7 @@ function comprobar(){
     }
 }
 
+//crear direccion
 function crearDireccion(){
     const params = new URLSearchParams("usuario="+document.getElementById('usuario').value+"&nombre="+document.getElementById('nombre').value+
     "&apellidos="+document.getElementById('apellidos').value+"&tipo_via="+document.getElementById('tipo_via').value+

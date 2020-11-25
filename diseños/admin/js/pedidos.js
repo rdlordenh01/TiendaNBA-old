@@ -3,6 +3,7 @@ document.getElementById("estado").addEventListener("change", pedidos, false);
 
 pedidos();
 
+//generar tabla con paginacion
 function pedidos(){
     fetch("../../server/order.php?estado="+ document.getElementById("estado").value, {
         "method": "GET"

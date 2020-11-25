@@ -7,6 +7,7 @@ document.getElementById("tarjetas").addEventListener("change", function(){ carga
 
 cargar_usuarios();
 
+//cargar usuarios
 function cargar_usuarios(){
     fetch ('../../server/user.php?tipo=Cliente', {
         "method": "GET"
@@ -43,6 +44,7 @@ function cargar_usuarios(){
     });
 }
 
+//cargar tarjetas al select
 function cargarselect(id){
     fetch ('../../server/card.php?id='+id, {
         "method": "GET"
@@ -80,6 +82,7 @@ function cargarselect(id){
     });
 }
 
+//cargar datos al form
 function cargarform(id){
     fetch ('../../server/card.php?card='+id, {
         "method": "GET"
@@ -102,8 +105,7 @@ function cargarform(id){
     });
 }
 
-
-
+//rellanar campos de form
 function rellenar(datos){
     document.getElementById("inputNombre").value = datos['titular'];
     var tarjeta = datos['tarjeta'].substring(0,4) + " " + datos['tarjeta'].substring(4,8) + " " + datos['tarjeta'].substring(8,12) + " " + datos['tarjeta'].substring(12,16);
@@ -113,6 +115,7 @@ function rellenar(datos){
     document.getElementById("selectYear").value = datos['ano']; 
 }
 
+//comprobacion
 function modTarjeta(){
     if(document.getElementById("inputNombre").value!="" & document.getElementById("inputNumero").value!="" & document.getElementById("inputCCV").value!="" & 
     document.getElementById("selectMes").value!="Mes" & document.getElementById("selectYear").value!="Año" & document.getElementById("inputNumero").value.length==19 & 
@@ -124,6 +127,7 @@ function modTarjeta(){
     }
 }
 
+//modificar tarjeta
 function modificar(){
     const params = new URLSearchParams("id="+document.getElementById('tarjetas').value+"&usuario="+document.getElementById('usuario').value+
     "&titular="+document.getElementById('inputNombre').value+"&tarjeta="+document.getElementById('inputNumero').value+"&ccv="+document.getElementById('inputCCV').value+
@@ -153,6 +157,7 @@ function modificar(){
     });
 }
 
+//borrar tarjeta
 function delTarjeta(){
     const params = new URLSearchParams("id="+document.getElementById('tarjetas').value+"&id_user="+sessionStorage["id"]+"");
     fetch ('../../server/delCard.php', {

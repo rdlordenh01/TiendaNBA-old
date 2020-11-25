@@ -7,6 +7,7 @@ document.getElementById("direcciones").addEventListener("change", function(){ ca
 
 cargar_usuarios();
 
+//cargar usuarios
 function cargar_usuarios(){
     fetch ('../../server/user.php?tipo=Cliente', {
         "method": "GET"
@@ -42,6 +43,7 @@ function cargar_usuarios(){
     });
 }
 
+//cargar select con direcciones
 function cargarselect(id){
     fetch ('../../server/address.php?id='+id, {
         "method": "GET"
@@ -78,6 +80,7 @@ function cargarselect(id){
     });
 }
 
+//cargar datos al form
 function cargarform(id){
     fetch ('../../server/address.php?dir='+id, {
         "method": "GET"
@@ -96,6 +99,7 @@ function cargarform(id){
     });
 }
 
+//vaciar campos del form
 function vaciar(){
     document.getElementById("user").value = "";
     document.getElementById("nombre").value = "";
@@ -111,6 +115,7 @@ function vaciar(){
     document.getElementById("dni").value = "";
 }
 
+//rellenar campos del form
 function rellenar(datos){
     document.getElementById("user").value = document.getElementById("usuario").options[document.getElementById("usuario").selectedIndex].text;
     document.getElementById("nombre").value = datos['nombre'];
@@ -126,6 +131,7 @@ function rellenar(datos){
     document.getElementById("dni").value = datos['dni'];
 }
 
+//comprobacion
 function modDireccion(){
     if(document.getElementById("nombre").value!="" & document.getElementById("apellidos").value!="" & document.getElementById("tipo_via").value!="" & 
     document.getElementById("direccion").value!="" & document.getElementById("numero").value!="" & document.getElementById("detalles").value!="" & 
@@ -139,6 +145,7 @@ function modDireccion(){
     }
 }
 
+//modificar direccion
 function modificar(){
     const params = new URLSearchParams("id="+document.getElementById('direcciones').value+"&nombre="+document.getElementById('nombre').value+
     "&apellidos="+document.getElementById('apellidos').value+"&tipo_via="+document.getElementById('tipo_via').value+"&direccion="+document.getElementById('direccion').value+
@@ -170,6 +177,7 @@ function modificar(){
     });
 }
 
+//eliminar direccion
 function delDireccion(){
     const params = new URLSearchParams("id="+document.getElementById('direcciones').value+"&id_user="+sessionStorage["id"]+"");
     fetch ('../../server/delAdress.php', {

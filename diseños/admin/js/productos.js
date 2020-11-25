@@ -1,6 +1,7 @@
 
 clasificacion();
 
+//generar tabla con paginacion
 function clasificacion(){
     fetch("../../server/product.php", {
         "method": "GET"

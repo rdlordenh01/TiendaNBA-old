@@ -1,6 +1,7 @@
 
 cargardatos_user();
 
+//cargar usuario
 function cargardatos_user(){
     document.getElementById("tipo").innerHTML = sessionStorage["tipo"];
     document.getElementById("user").innerHTML = sessionStorage["user"];

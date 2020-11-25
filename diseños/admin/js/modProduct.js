@@ -9,6 +9,7 @@ cargar_marcas();
 cargar_equipos();
 cargar_products();
 
+//cargar equipos
 function cargar_equipos(){
     document.getElementById('equipo').innerHTML="";
     fetch ('json/equipos.json')
@@ -29,6 +30,7 @@ function cargar_equipos(){
     });
 }
 
+//cargar marcas
 function cargar_marcas(){
     document.getElementById('marca').innerHTML="";
     fetch ('json/marcas.json')
@@ -49,6 +51,7 @@ function cargar_marcas(){
     });
 }
 
+//cargar categoria
 function cargar_categoria(){
     document.getElementById('categoria').innerHTML="";
     fetch ('json/categorias.json')
@@ -70,6 +73,7 @@ function cargar_categoria(){
     });
 }
 
+//cargar subcategorias
 function cargar_subcategoria(){
     document.getElementById('subcategoria').innerHTML="";
     fetch ('json/categorias.json')
@@ -90,6 +94,7 @@ function cargar_subcategoria(){
     });
 }
 
+//cargar productos
 function cargar_products(){
     fetch ('../../server/product.php', {
         "method": "GET"
@@ -125,6 +130,7 @@ function cargar_products(){
     });
 }
 
+//cargar datos al form
 function cargarform(id){
     fetch ('../../server/product.php?id='+id, {
         "method": "GET"
@@ -151,6 +157,7 @@ function cargarform(id){
     });
 }
 
+//rellenar campos de form
 function rellenar(datos){
     document.getElementById("nombre").value = datos['nombre'];
     document.getElementById("equipo").value = datos['equipo'];
@@ -163,6 +170,7 @@ function rellenar(datos){
     document.getElementById("foto").src = "../../server/" + datos['imagen'];
 }
 
+//comprobacion
 function modProducto(){
     if(document.getElementById("nombre").value!="" & document.getElementById("equipo").value!="" & document.getElementById("marca").value!="" & 
     document.getElementById("categoria").value!="" & document.getElementById("subcategoria").value!="" & document.getElementById("descripcion").value!="" & 
@@ -174,6 +182,7 @@ function modProducto(){
     }
 }
 
+//modificar producto
 function modificar(){
     const params = new URLSearchParams("id="+document.getElementById('producto').value+"&nombre="+document.getElementById('nombre').value+"&equipo="+document.getElementById('equipo').value+
     "&marca="+document.getElementById('marca').value+"&categoria="+document.getElementById('categoria').value+"&subcategoria="+document.getElementById('subcategoria').value+
@@ -202,6 +211,7 @@ function modificar(){
     });
 }
 
+//borrar producto
 function delProducto(){
     const params = new URLSearchParams("id="+document.getElementById('producto').value+"&id_user="+sessionStorage["id"]+"");
     fetch ('../../server/delProduct.php', {

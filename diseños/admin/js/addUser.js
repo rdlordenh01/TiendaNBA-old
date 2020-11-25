@@ -1,6 +1,7 @@
 
 document.getElementById("btnUser").addEventListener("click", dardealta, false);
 
+//vaciar campos de form
 function vaciar_form(){
     document.getElementById("user").value = "";
     document.getElementById("passwd").value = "";
@@ -8,6 +9,7 @@ function vaciar_form(){
     document.getElementById("email").value = "";
 }
 
+//comprobacion
 function dardealta(){
     if(document.getElementById("user").value!="" & document.getElementById("passwd").value!="" & document.getElementById("tipo").value!="" & 
     document.getElementById("email").value!="" & document.getElementById("email").value.length>10){
@@ -20,6 +22,7 @@ function dardealta(){
     }
 }
 
+//alert de comprobacion
 function comprobar(){
     mensaje = "Los siguientes campos están vacíos:";
     if(document.getElementById("user").value==""){
@@ -39,6 +42,7 @@ function comprobar(){
     }
 }
 
+//crear usuario
 function crearUser(){
     const params = new URLSearchParams("user="+document.getElementById('user').value+"&passwd="+document.getElementById('passwd').value+
     "&tipo="+document.getElementById('tipo').value+"&email="+document.getElementById('email').value+"&id_user="+sessionStorage["id"]+"");

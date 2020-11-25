@@ -1,6 +1,7 @@
 
 cargar_usuarios();
 
+//cargar usuarios
 function cargar_usuarios(){
     document.getElementById('usuarios').innerHTML="";
     fetch ('../../server/user.php', {
@@ -32,6 +33,7 @@ function cargar_usuarios(){
     });
 }
 
+//generar tabla con paginacion
 function clasificacion(){
     fetch("../../server/register.php?user="+document.getElementById("usuarios").value+"&orden="+document.getElementById("orden").value, {
         "method": "GET"

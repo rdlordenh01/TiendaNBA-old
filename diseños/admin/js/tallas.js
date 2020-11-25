@@ -3,6 +3,7 @@ document.getElementById("producto").addEventListener("change", function(){ clasi
 
 cargar_products();
 
+//cargar productos
 function cargar_products(){
     fetch ('../../server/product.php', {
         "method": "GET"
@@ -33,6 +34,7 @@ function cargar_products(){
     });
 }
 
+//generar tabla
 function clasificacion(id){
     fetch("../../server/size.php?prod="+id, {
         "method": "GET"

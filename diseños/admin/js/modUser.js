@@ -6,6 +6,7 @@ document.getElementById("usuario").addEventListener("change", function(){ cargar
 
 cargar_users();
 
+//cargar usuarios
 function cargar_users(){
     fetch ('../../server/user.php?tipo=Administrador', {
         "method": "GET"
@@ -42,6 +43,7 @@ function cargar_users(){
     });
 }
 
+//cargar datos form
 function cargarform(id){
     fetch ('../../server/user.php?id='+id, {
         "method": "GET"
@@ -63,6 +65,7 @@ function cargarform(id){
     });
 }
 
+//rellenar campos de form
 function rellenar(datos){
     document.getElementById("user").value = datos['user'];
     document.getElementById("passwd").value = datos['passwd'];
@@ -77,6 +80,7 @@ function rellenar(datos){
     }
 }
 
+//comprobacion
 function modUsuario(){
     if(document.getElementById("usuario").value!="" & document.getElementById("user").value!="" & document.getElementById("passwd").value!="" & 
     document.getElementById("tipo").value!="" & document.getElementById("email").value!="" & document.getElementById("email").value.length>10){
@@ -87,6 +91,7 @@ function modUsuario(){
     }
 }
 
+//modificar usuario
 function modificar(){
     const params = new URLSearchParams("id="+document.getElementById('usuario').value+"&user="+document.getElementById('user').value+
     "&passwd="+document.getElementById('passwd').value+"&tipo="+document.getElementById('tipo').value+"&email="+document.getElementById('email').value+
@@ -115,6 +120,7 @@ function modificar(){
     });
 }
 
+//deshabilitar usuario o habilitar
 function delUsuario(){
     const params = new URLSearchParams("id="+document.getElementById('usuario').value+"&activo="+document.getElementById('baja').value+"&id_user="+sessionStorage["id"]+"");
     fetch ('../../server/delUser.php', {

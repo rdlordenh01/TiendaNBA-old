@@ -124,6 +124,7 @@ document.getElementById("telefono").addEventListener('keyup', (e) => {
     }
 });
 
+//comprobacion de nif
 function nif(dni) {
 
   if(document.getElementById("dni").value.substring(0,1)=="0" && document.getElementById("dni").value.length==9){
