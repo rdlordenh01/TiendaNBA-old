@@ -18,7 +18,7 @@ function clasificacion(){
             conferencias("TABLA DE PRODUCTOS", datos['items'],campos,rows,columnas);
             paginar(datos['items'].length, campos, rows);
         }else{
-            cabecera_tabla("",columnas);
+            cabecera_tabla("TABLA DE PRODUCTOS",columnas);
             document.getElementById("paginas").innerHTML = "";
         }
     })
