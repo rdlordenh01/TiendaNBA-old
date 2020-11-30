@@ -25,6 +25,6 @@ function pedidos(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }

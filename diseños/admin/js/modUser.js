@@ -39,7 +39,7 @@ function cargar_users(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -61,7 +61,7 @@ function cargarform(id){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -116,7 +116,7 @@ function modificar(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -142,7 +142,7 @@ function delUsuario(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 

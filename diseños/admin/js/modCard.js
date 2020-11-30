@@ -40,7 +40,7 @@ function cargar_usuarios(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -78,7 +78,7 @@ function cargarselect(id){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -101,7 +101,7 @@ function cargarform(id){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -153,7 +153,7 @@ function modificar(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -172,12 +172,12 @@ function delTarjeta(){
             enable_del(datos['mensaje']);
             cargar_usuarios();
         }
-        if(datos['mensaje']!=undefined && datos['mensaje']=="Tarjeta no eliminada"){
+        if(datos['mensaje']!=undefined && (datos['mensaje']=="Tarjeta no eliminada" | datos['mensaje']=="Tiene registros")){
             disable_del();
             enable_nodel(datos['mensaje']);
         }  
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }

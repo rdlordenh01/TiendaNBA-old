@@ -29,7 +29,7 @@ function cargar_usuarios(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -55,7 +55,7 @@ function clasificacion(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 

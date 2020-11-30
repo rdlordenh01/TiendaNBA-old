@@ -210,10 +210,10 @@ function menu(opcion){
             })
             .then(data => data.json()) 
             .then(datos => {
-                console.log(datos);
+                //console.log(datos);
             })
             .catch(err => {
-                console.log(err);
+                //console.log(err);
             });
             sessionStorage.clear();
             window.location.href = "../index.html";

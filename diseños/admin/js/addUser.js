@@ -17,28 +17,7 @@ function dardealta(){
     }
     else{
         disable_creado();
-        enable_nocreado();
-        comprobar();
-    }
-}
-
-//alert de comprobacion
-function comprobar(){
-    mensaje = "Los siguientes campos están vacíos:";
-    if(document.getElementById("user").value==""){
-        mensaje = mensaje + "\n   - Usuario";
-    }
-    if(document.getElementById("passwd").value==""){
-        mensaje = mensaje + "\n   - Contraseña";
-    }
-    if(document.getElementById("tipo").value==""){
-        mensaje = mensaje + "\n   - Tipo";
-    }
-    if(document.getElementById("email").value==""){
-        mensaje = mensaje + "\n   - Email";
-    }
-    if(mensaje.length > 35){
-        alert(mensaje);
+        enable_nocreado("El usuario no ha sido creado, rellene todos los campos");
     }
 }
 
@@ -64,6 +43,6 @@ function crearUser(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }

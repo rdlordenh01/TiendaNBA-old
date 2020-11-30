@@ -46,7 +46,7 @@ function cargar_users(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -61,51 +61,9 @@ function dardealta(){
     }
     else{
         disable_creado();
-        enable_nocreado();
-        comprobar();
+        enable_nocreado("La dirección no ha sido creada, rellene todos los campos");
     }
 } 
-
-//alert de comprobacion
-function comprobar(){
-    mensaje = "Los siguientes campos están vacíos:";
-    if(document.getElementById("usuario").value==""){
-        mensaje = mensaje + "\n   - Usuario";
-    }
-    if(document.getElementById("nombre").value==""){
-        mensaje = mensaje + "\n   - Nombre titular";
-    }
-    if(document.getElementById("apellidos").value==""){
-        mensaje = mensaje + "\n   - Apellidos";
-    }
-    if(document.getElementById("tipo_via").value==""){
-        mensaje = mensaje + "\n   - Tipo via";
-    }
-    if(document.getElementById("direccion").value==""){
-        mensaje = mensaje + "\n   - Nombre de dirección";
-    }
-    if(document.getElementById("numero").value==""){
-        mensaje = mensaje + "\n   - Número";
-    }
-    if(document.getElementById("ciudad").value==""){
-        mensaje = mensaje + "\n   - Ciudad";
-    }
-    if(document.getElementById("localidad").value==""){
-        mensaje = mensaje + "\n   - Localidad";
-    }
-    if(document.getElementById("codigo_postal").value=="" | document.getElementById("codigo_postal").value.length<4){
-        mensaje = mensaje + "\n   - Código Postal";
-    }
-    if(document.getElementById("dni").value=="" | document.getElementById("dni").value.length>9 | document.getElementById("dni").className=="form-control border border-danger"){
-        mensaje = mensaje + "\n   - DNI";
-    }
-    if(document.getElementById("detalles").value==""){
-        mensaje = mensaje + "\n   - Detalles";
-    }
-    if(mensaje.length > 35){
-        alert(mensaje);
-    }
-}
 
 //crear direccion
 function crearDireccion(){
@@ -133,6 +91,6 @@ function crearDireccion(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }

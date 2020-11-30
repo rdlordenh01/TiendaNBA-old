@@ -23,6 +23,6 @@ function clasificacion(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }

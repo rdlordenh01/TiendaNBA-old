@@ -38,7 +38,7 @@ function cargar_users(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -51,34 +51,7 @@ function dardealta(){
     }
     else{
         disable_creado();
-        enable_nocreado();
-        comprobar();
-    }
-}
-
-//alert de comprobacion
-function comprobar(){
-    mensaje = "Los siguientes campos están vacíos:";
-    if(document.getElementById("usuario").value==""){
-        mensaje = mensaje + "\n   - Usuario";
-    }
-    if(document.getElementById("inputNumero").value=="" | document.getElementById("inputNumero").value.length<19){
-        mensaje = mensaje + "\n   - Número de tarjeta";
-    }
-    if(document.getElementById("inputNombre").value==""){
-        mensaje = mensaje + "\n   - Nombre del titular";
-    }
-    if(document.getElementById("selectMes").value=="Mes"){
-        mensaje = mensaje + "\n   - Mes de caducidad";
-    }
-    if(document.getElementById("selectYear").value=="Año"){
-        mensaje = mensaje + "\n   - Año de caducidad";
-    }
-    if(document.getElementById("inputCCV").value=="" | document.getElementById("inputCCV").value.length<3){
-        mensaje = mensaje + "\n   - CCV";
-    }
-    if(mensaje.length > 35){
-        alert(mensaje);
+        enable_nocreado("La tarjeta no ha sido creada, rellene todos los campos");
     }
 }
 
@@ -105,6 +78,6 @@ function crearTarjeta(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }

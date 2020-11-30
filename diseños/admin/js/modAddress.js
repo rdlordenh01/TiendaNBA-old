@@ -39,7 +39,7 @@ function cargar_usuarios(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -76,7 +76,7 @@ function cargarselect(id){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -95,7 +95,7 @@ function cargarform(id){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -173,7 +173,7 @@ function modificar(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -193,12 +193,12 @@ function delDireccion(){
             cargar_usuarios();
             //location.reload();
         }
-        if(datos['mensaje']!=undefined && datos['mensaje']=="Direccion no eliminada"){
+        if(datos['mensaje']!=undefined && (datos['mensaje']=="Direccion no eliminada" | datos['mensaje']=="Tiene registros")){
             disable_creado();
             enable_nocreado(datos['mensaje']);
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }

@@ -33,7 +33,7 @@ function cargar_pedidos(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -58,7 +58,7 @@ function crearTabla(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -80,7 +80,7 @@ function realizarPedido(){
         //location.reload();
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -102,7 +102,7 @@ function cancelarPedido(){
         //location.reload();
     })
     .catch(err => {
-        console.log(err);
+        //onsole.log(err);
     });
 }
 
@@ -118,7 +118,7 @@ function quitarStockStore(id,talla,cantidad){  //quitar stock de almacen (stock 
         //console.log(datos);
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -134,6 +134,6 @@ function addStockVenta(id,talla,cantidad){  //volver a añadir stock a la tienda
         //console.log(datos);
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }

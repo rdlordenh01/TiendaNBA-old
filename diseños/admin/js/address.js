@@ -103,7 +103,7 @@ document.getElementById("codigo_postal").addEventListener('keyup', (e) => {
 	.replace(/\s/g, '')
 	// Eliminar las letras
     .replace(/\D/g, '');
-    if(document.getElementById("codigo_postal").value.length>0){
+    if(document.getElementById("codigo_postal").value.length=5){
         document.getElementById("codigo_postal").className = "form-control border border-success";
     }else{
         document.getElementById("codigo_postal").className = "form-control border border-danger";
@@ -117,7 +117,7 @@ document.getElementById("telefono").addEventListener('keyup', (e) => {
 	.replace(/\s/g, '')
 	// Eliminar las letras
     .replace(/\D/g, '');
-    if(document.getElementById("telefono").value.length>0){
+    if(document.getElementById("telefono").value.length=9){
         document.getElementById("telefono").className = "form-control border border-success";
     }else{
         document.getElementById("telefono").className = "form-control border border-danger";

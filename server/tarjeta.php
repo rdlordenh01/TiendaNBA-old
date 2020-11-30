@@ -26,6 +26,12 @@ class Tarjeta extends DB{
         return $query;
     }
 
+    function comprobarDel($id){
+        $query = $this->connect()->prepare('SELECT * FROM pagos t, pedidos p WHERE t.id=p.pago AND p.pago=:id');
+        $query->execute(['id' => $id]);
+        return $query;
+    }
+
     function nuevaTarjeta($tarjeta,$max){
         $query = $this->connect()->prepare('INSERT INTO pagos (id,usuario,titular,tarjeta,ccv,mes,año) VALUES (:id,:usuario,:titular,:tarjeta,:ccv,:mes,:ano)');
         $query->execute(['id' => $max['id']+1, 'usuario' => $tarjeta['usuario'], 'titular' => $tarjeta['titular'], 'tarjeta' => $tarjeta['tarjeta'], 'ccv' => $tarjeta['ccv'], 'mes' => $tarjeta['mes'], 'ano' => $tarjeta['ano']]);

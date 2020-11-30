@@ -202,43 +202,48 @@ class ApiDirecciones{
 
     function del($item){
         $direccion = new Direccion();
-        $res = $direccion->delDireccion($item);
-        if(!$res){
-            $this->exito('Direccion no eliminada');
-            //METER REGISTRO
-            $registro = new Registro();
-            $max = $registro->maxID();
-            if($max->rowCount() == 1){
-                $row = $max->fetch();
-                $item2=array(
-                    "usuario" => $item['id_user'],
-                    "tipo" => "DIRECCIÓN NO ELIMINADA"
-                );
-                $item3=array(
-                    "id" => $row['id']
-                );
-                $res = $registro->nuevoRegistro($item2,$item3);
+        $coincide = $direccion->comprobarDel($item['id']);
+        if($coincide->rowCount() == 0){
+            $res = $direccion->delDireccion($item);
+            if(!$res){
+                $this->exito('Direccion no eliminada');
+                //METER REGISTRO
+                $registro = new Registro();
+                $max = $registro->maxID();
+                if($max->rowCount() == 1){
+                    $row = $max->fetch();
+                    $item2=array(
+                        "usuario" => $item['id_user'],
+                        "tipo" => "DIRECCIÓN NO ELIMINADA"
+                    );
+                    $item3=array(
+                        "id" => $row['id']
+                    );
+                    $res = $registro->nuevoRegistro($item2,$item3);
+                }else{
+                    $this->error('No hay id del registro');
+                }
             }else{
-                $this->error('No hay id del registro');
+                $this->exito('Direccion eliminada');
+                //METER REGISTRO
+                $registro = new Registro();
+                $max = $registro->maxID();
+                if($max->rowCount() == 1){
+                    $row = $max->fetch();
+                    $item2=array(
+                        "usuario" => $item['id_user'],
+                        "tipo" => "DIRECCIÓN ELIMINADA"
+                    );
+                    $item3=array(
+                        "id" => $row['id']
+                    );
+                    $res = $registro->nuevoRegistro($item2,$item3);
+                }else{
+                    $this->error('No hay id del registro');
+                }
             }
         }else{
-            $this->exito('Direccion eliminada');
-            //METER REGISTRO
-            $registro = new Registro();
-            $max = $registro->maxID();
-            if($max->rowCount() == 1){
-                $row = $max->fetch();
-                $item2=array(
-                    "usuario" => $item['id_user'],
-                    "tipo" => "DIRECCIÓN ELIMINADA"
-                );
-                $item3=array(
-                    "id" => $row['id']
-                );
-                $res = $registro->nuevoRegistro($item2,$item3);
-            }else{
-                $this->error('No hay id del registro');
-            }
+            $this->error('Tiene registros');
         }
     }
 

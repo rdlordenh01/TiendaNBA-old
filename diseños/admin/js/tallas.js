@@ -30,7 +30,7 @@ function cargar_products(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -54,7 +54,7 @@ function clasificacion(id){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 

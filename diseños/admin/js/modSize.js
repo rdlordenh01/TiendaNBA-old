@@ -39,7 +39,7 @@ function cargar_products(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -76,7 +76,7 @@ function cargarselect(id){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -96,7 +96,7 @@ function cargarform(id){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -141,7 +141,7 @@ function modificar(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -154,7 +154,7 @@ function delTalla(){
     })
     .then(data => data.json()) 
     .then(datos => {
-        console.log(datos);
+        //console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Talla eliminada"){
             disable_nodel();
             enable_del(datos['mensaje']);

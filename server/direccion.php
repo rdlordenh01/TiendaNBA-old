@@ -26,6 +26,12 @@ class Direccion extends DB{
         return $query;
     }
 
+    function comprobarDel($id){
+        $query = $this->connect()->prepare('SELECT * FROM direcciones d, pedidos p WHERE d.id=p.direccion AND p.direccion=:id');
+        $query->execute(['id' => $id]);
+        return $query;
+    }
+
     function nuevaDireccion($direccion,$max){
         $query = $this->connect()->prepare('INSERT INTO direcciones (id,usuario,nombre,apellidos,tipo_via,direccion,numero,ciudad,localidad,codigo_postal,telefono,detalles,dni) 
         VALUES (:id,:usuario,:nombre,:apellidos,:tipo_via,:direccion,:numero,:ciudad,:localidad,:codigo_postal,:telefono,:detalles,:dni)');

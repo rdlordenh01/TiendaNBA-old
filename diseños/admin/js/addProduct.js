@@ -22,7 +22,7 @@ function cargar_equipos(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -43,7 +43,7 @@ function cargar_marcas(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -65,7 +65,7 @@ function cargar_categoria(){
         cargar_subcategoria();
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
@@ -86,7 +86,7 @@ function cargar_subcategoria(){
         }
     })
     .catch(err => {
-        console.log(err);
+        //console.log(err);
     });
 }
 
