@@ -269,12 +269,3 @@ function disable_nodel(){
     document.getElementById("nodel").style = "display: none;";
 }
 
-
-//test_menu();
-//test_menu2();
-function test_menu(){
-    menu("aaaaa");
-}
-function test_menu2(){
-    menu("Inicio");
-}

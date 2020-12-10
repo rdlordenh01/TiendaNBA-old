@@ -34,14 +34,7 @@ function cargar_products(){
     });
 }
 
-//test_clasificacion();
-//test_clasificacion2();
-function test_clasificacion(){
-    clasificacion("1");
-}
-function test_clasificacion2(){
-    clasificacion("hjsjd");
-}
+
 //generar tabla
 function clasificacion(id){
     fetch("../../server/size.php?prod="+id, {

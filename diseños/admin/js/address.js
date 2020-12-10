@@ -124,14 +124,7 @@ document.getElementById("telefono").addEventListener('keyup', (e) => {
     }
 });
 
-//test_nif();
-//test_nif2();
-function test_nif(){
-    nif("sdgfdhsgf");
-}
-function test_nif2(){
-    nif("03204436F");
-}
+
 //comprobacion de nif
 function nif(dni) {
 
