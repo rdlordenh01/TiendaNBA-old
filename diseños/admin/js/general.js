@@ -138,6 +138,7 @@ document.getElementById("m_registros1").addEventListener("click", function(){ me
 document.getElementById("m_registros2").addEventListener("click", function(){ menu(document.getElementById("m_registros2").innerText);},false);
 document.getElementById("m_logout").addEventListener("click", function(){ menu(document.getElementById("m_logout").innerText);}, false); 
 
+
 //menu de opciones del nav
 function menu(opcion){
     
@@ -218,6 +219,8 @@ function menu(opcion){
             sessionStorage.clear();
             window.location.href = "../index.html";
             break;
+        default:
+            break;
     }
 }
 
@@ -267,3 +270,11 @@ function disable_nodel(){
 }
 
 
+//test_menu();
+//test_menu2();
+function test_menu(){
+    menu("aaaaa");
+}
+function test_menu2(){
+    menu("Inicio");
+}

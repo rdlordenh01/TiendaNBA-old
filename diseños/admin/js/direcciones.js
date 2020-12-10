@@ -60,3 +60,31 @@ function clasificacion(){
 }
 
 document.getElementById("usuarios").addEventListener("change", clasificacion, false); 
+
+/* test_paginador();
+test_paginador2();
+function test_paginador(){
+    paginar(15, ["user", "nombre","apellidos","tipo_via","direccion","numero","detalles","ciudad","localidad","codigo_postal","telefono","dni"], 10);
+}
+function test_paginador2(){
+    paginar('ahsfdhs', [1, "nombre",6,"tipo_via","direccion","numero","detalles","ciudad","localidad","codigo_postal","telefono","dni"], 'sdfdsa');
+} */
+
+test_cabecera();
+test_cabecera2();
+function test_cabecera(){
+    cabecera_tabla("TABLA DE USUARIOS", ["Usuario","Nombre","Apellidos","Via","Dirección","Número","Detalles","Ciudad","Localidad","C.P.","Teléfono","DNI"]);
+}
+function test_cabecera2(){
+    cabecera_tabla(1, [4,"Nombre","Apellidos",7,"Dirección","Número","Detalles",8,"Localidad","C.P.","Teléfono","DNI4"]);
+}
+
+test_fila();
+test_fila2();
+test_cabecera2();
+function test_fila(){
+    crear_fila(["Usuario","Nombre","Apellidos","Via","Dirección","Número","Detalles","Ciudad","Localidad","C.P.","Teléfono","DNI"], 4);
+}
+function test_fila2(){
+    crear_fila([4,"Nombre","Apellidos",7,"Dirección","Número","Detalles",8,"Localidad","C.P.","Teléfono","DNI4"], 'sdfsd');
+}

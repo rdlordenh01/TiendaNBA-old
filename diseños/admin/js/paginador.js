@@ -202,3 +202,4 @@ function crear_fila(info,num){
     }
     tbody.appendChild(hilera);
 }
+

@@ -124,6 +124,14 @@ document.getElementById("telefono").addEventListener('keyup', (e) => {
     }
 });
 
+//test_nif();
+//test_nif2();
+function test_nif(){
+    nif("sdgfdhsgf");
+}
+function test_nif2(){
+    nif("03204436F");
+}
 //comprobacion de nif
 function nif(dni) {
 
@@ -131,6 +139,8 @@ function nif(dni) {
     expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
   }else if(document.getElementById("dni").value.substring(0,1)!="0" && document.getElementById("dni").value.length==8){
     expresion_regular_dni = /^\d{7}[a-zA-Z]$/;
+  }else{
+    expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
   }
 
   if(dni.match(expresion_regular_dni)){
