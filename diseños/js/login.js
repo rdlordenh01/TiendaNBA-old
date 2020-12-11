@@ -2,7 +2,6 @@
 //eventos onclick
 document.getElementById("logearse").addEventListener("click", login, false);
 //document.getElementById("renew-passwd").addEventListener("click", login, false);
-document.getElementById("invitado").addEventListener("click", login2, false);
 
 //eventos keyup
 document.getElementById('username').addEventListener('keyup', function(e) {
@@ -60,11 +59,6 @@ function rellenar_id(id){
         id = "0" + id;
     } 
     return id;
-}
-
-function login2(){
-    //entrar a la web de compra para clientes
-    window.location.href = "inicio.html";
 }
 
 function enable_error(){

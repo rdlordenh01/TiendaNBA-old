@@ -35,11 +35,11 @@ function crearUser(){
         if(datos['mensaje']!=undefined && datos['mensaje']=="Nuevo usuario registrado"){
             vaciar_form();
             disable_nocreado();
-            enable_creado();
+            enable_creado(datos['mensaje']);
         }
         if(datos['mensaje']!=undefined && (datos['mensaje']=="Nuevo usuario no registrado" | datos['mensaje']=="Ya existe el usuario" | datos['mensaje']=="No hay id de usuario")){
             disable_creado();
-            enable_nocreado();
+            enable_nocreado(datos['mensaje']);
         }
     })
     .catch(err => {

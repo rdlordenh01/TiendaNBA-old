@@ -83,11 +83,11 @@ function crearDireccion(){
         if(datos['mensaje']!=undefined && datos['mensaje']=="Nueva direccion registrada"){
             vaciar_form();
             disable_nocreado();
-            enable_creado();
+            enable_creado(datos['mensaje']);
         }
         if(datos['mensaje']!=undefined && (datos['mensaje']=="Nueva direccion no registrada" | datos['mensaje']=="No hay id")){
             disable_creado();
-            enable_nocreado();
+            enable_nocreado(datos['mensaje']);
         }
     })
     .catch(err => {

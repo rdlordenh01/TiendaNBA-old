@@ -107,12 +107,12 @@ function crearTalla(){
         //console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Nueva talla registrada"){
             disable_nocreado();
-            enable_creado();
+            enable_creado(datos['mensaje']);
             vaciar_form();
         }
         if(datos['mensaje']!=undefined && (datos['mensaje']=="Ya existe la talla del producto" | datos['mensaje']=="Nueva talla no registrada")){
             disable_creado();
-            enable_nocreado();
+            enable_nocreado(datos['mensaje']);
         }
     })
     .catch(err => {
