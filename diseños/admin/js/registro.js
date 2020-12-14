@@ -4,7 +4,7 @@ cargar_usuarios();
 //cargar usuarios
 function cargar_usuarios(){
     document.getElementById('usuarios').innerHTML="";
-    fetch ('../../server/user.php', {
+    fetch ('../../server/user.php?tipo=Administrador', {
         "method": "GET"
     })
     .then(data => data.json()) 
