@@ -188,8 +188,8 @@ function delDireccion(){
     .then(datos => {
         //console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Direccion eliminada"){
-            disable_nodel();
-            enable_del(datos['mensaje']);
+            disable_nocreado();
+            enable_creado(datos['mensaje']);
             cargar_usuarios();
             //location.reload();
         }

@@ -131,8 +131,8 @@ function delUsuario(){
     .then(datos => {
         //console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Usuario cambiado"){
-            disable_nodel();
-            enable_del(datos['mensaje']);
+            disable_nocreado();
+            enable_creado(datos['mensaje']);
             cargar_users();
             //location.reload();
         }

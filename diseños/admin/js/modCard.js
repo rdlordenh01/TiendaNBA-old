@@ -168,8 +168,8 @@ function delTarjeta(){
     .then(datos => {
         //console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Tarjeta eliminada"){
-            disable_nodel();
-            enable_del(datos['mensaje']);
+            disable_nocreado();
+            enable_creado(datos['mensaje']);
             cargar_usuarios();
         }
         if(datos['mensaje']!=undefined && (datos['mensaje']=="Tarjeta no eliminada" | datos['mensaje']=="Tiene registros")){

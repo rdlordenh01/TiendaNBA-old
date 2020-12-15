@@ -251,21 +251,4 @@ function disable_nocreado(){
     document.getElementById("nocreado").style = "display: none;";
 }
 
-function enable_del(mensaje){
-    document.getElementById("del").style = "display: block;";
-    document.getElementById("del").innerHTML = mensaje;
-}
-
-function enable_nodel(mensaje){
-    document.getElementById("nodel").style = "display: block;";
-    document.getElementById("nodel").innerHTML = mensaje;
-}
-
-function disable_del(){
-    document.getElementById("del").style = "display: none;";
-}
-
-function disable_nodel(){
-    document.getElementById("nodel").style = "display: none;";
-}
 

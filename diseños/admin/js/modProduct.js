@@ -222,8 +222,8 @@ function delProducto(){
     .then(datos => {
         //console.log(datos);
         if(datos['mensaje']!=undefined && datos['mensaje']=="Producto eliminado"){
-            disable_nodel();
-            enable_del(datos['mensaje']);
+            disable_nocreado();
+            enable_creado(datos['mensaje']);
             cargar_products();
             //location.reload();
         }
