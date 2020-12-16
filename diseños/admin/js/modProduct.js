@@ -228,8 +228,8 @@ function delProducto(){
             //location.reload();
         }
         if(datos['mensaje']!=undefined && (datos['mensaje']=="Producto no eliminado" | datos['mensaje']=="No hay id" | datos['mensaje']=="Tiene registros")){
-            disable_del();
-            enable_nodel(datos['mensaje']);
+            disable_creado();
+            enable_nocreado(datos['mensaje']);
         }
     })
     .catch(err => {

@@ -173,8 +173,8 @@ function delTarjeta(){
             cargar_usuarios();
         }
         if(datos['mensaje']!=undefined && (datos['mensaje']=="Tarjeta no eliminada" | datos['mensaje']=="Tiene registros")){
-            disable_del();
-            enable_nodel(datos['mensaje']);
+            disable_creado();
+            enable_nocreado(datos['mensaje']);
         }  
     })
     .catch(err => {
