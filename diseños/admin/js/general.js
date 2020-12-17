@@ -224,7 +224,7 @@ function menu(opcion){
     }
 }
 
-
+document.title = "Admin Dashboard";
 if(sessionStorage.length==0){
     alert("La sesión ha expirado");
     menu(document.getElementById("m_logout").innerText);

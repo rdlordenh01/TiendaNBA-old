@@ -64,3 +64,5 @@ function rellenar_id(id){
 function enable_error(){
   document.getElementById("error").style = "display: inline;";
 }
+
+document.title = "Admin Login";
