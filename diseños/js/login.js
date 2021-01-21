@@ -25,7 +25,10 @@ function login(){
     //alert('../server/user.php?user='+document.getElementById("username").value+'&passwd='+document.getElementById("passwd").value);
     fetch ('http://nba-server.tk/user.php?user='+document.getElementById("username").value+'&passwd='+document.getElementById("passwd").value, {
         "method": "GET",
-        "mode": "no-cors"
+        "mode": "no-cors",
+        "headers": {
+            "Content-Type": "application/json",
+            "Accept":"application/json"}
     })
         .then(data => data.json()) 
         .then(datos => {
