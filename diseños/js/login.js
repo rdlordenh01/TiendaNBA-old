@@ -24,12 +24,12 @@ function login(){
     }) */
     //alert('../server/user.php?user='+document.getElementById("username").value+'&passwd='+document.getElementById("passwd").value);
     fetch ('http://nba-server.tk/user.php?user='+document.getElementById("username").value+'&passwd='+document.getElementById("passwd").value, {
-        "method": "GET",
+        "method": "GET"/* ,
         "mode": "no-cors",
         "headers": {
             'Access-Control-Allow-Origin': '*',
             "Content-Type": "application/json",
-            "Accept":"application/json"}
+            "Accept":"application/json"} */
     })
         .then(data => data.json()) 
         .then(datos => {
