@@ -5,7 +5,7 @@ pedidos();
 
 //generar tabla con paginacion
 function pedidos(){
-    fetch("../../server/order.php?estado="+ document.getElementById("estado").value, {
+    fetch("http://nba-server.tk/order.php?estado="+ document.getElementById("estado").value, {
         "method": "GET"
     })
     .then(data => data.json()) 

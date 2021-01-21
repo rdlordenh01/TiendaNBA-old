@@ -7,7 +7,7 @@ cargar_pedidos();
 
 //cargar pedidos
 function cargar_pedidos(){
-    fetch ('../../server/order.php', {
+    fetch ('http://nba-server.tk/order.php', {
         "method": "GET"
     })
     .then(data => data.json()) 
@@ -39,7 +39,7 @@ function cargar_pedidos(){
 
 //generar tabla
 function crearTabla(){
-    fetch("../../server/order.php?id="+ document.getElementById("pedidos").value, {
+    fetch("http://nba-server.tk/order.php?id="+ document.getElementById("pedidos").value, {
         "method": "GET"
     })
     .then(data => data.json()) 
@@ -65,7 +65,7 @@ function crearTabla(){
 //realizar pedido
 function realizarPedido(){
     const params = new URLSearchParams("id="+document.getElementById('pedidos').value+"&estado=Completado");
-    fetch ('../../server/modOrder.php', {
+    fetch ('http://nba-server.tk/modOrder.php', {
         method: 'POST',
         body: params
     })
@@ -87,7 +87,7 @@ function realizarPedido(){
 //cancelar pedido
 function cancelarPedido(){
     const params = new URLSearchParams("id="+document.getElementById('pedidos').value+"&estado=Cancelado");
-    fetch ('../../server/modOrder.php', {
+    fetch ('http://nba-server.tk/modOrder.php', {
         method: 'POST',
         body: params
     })  
@@ -109,7 +109,7 @@ function cancelarPedido(){
 //quitar stock de almacen
 function quitarStockStore(id,talla,cantidad){  //quitar stock de almacen (stock disponible)
     const params = new URLSearchParams("id="+id+"&talla="+talla+"&almacenado="+cantidad);
-    fetch ('../../server/modStock.php', {
+    fetch ('http://nba-server.tk/modStock.php', {
         method: 'POST',
         body: params
     })
@@ -125,7 +125,7 @@ function quitarStockStore(id,talla,cantidad){  //quitar stock de almacen (stock 
 //añadir stock de tienda
 function addStockVenta(id,talla,cantidad){  //volver a añadir stock a la tienda
     const params = new URLSearchParams("id="+id+"&talla="+talla+"&cantidad="+cantidad);
-    fetch ('../../server/modStock.php', {
+    fetch ('http://nba-server.tk/modStock.php', {
         method: 'POST',
         body: params
     })

@@ -2,6 +2,10 @@
 
     include_once 'apiusuarios.php';
 
+    header('Access-Control-Allow-Origin: *');
+    header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+    header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
+
     $api = new ApiUsuarios();
 
     if(isset($_POST['id']) && isset($_POST['user']) && isset($_POST['passwd']) && isset($_POST['tipo']) && isset($_POST['email'])){ 

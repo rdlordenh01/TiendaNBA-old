@@ -9,7 +9,7 @@ cargar_usuarios();
 
 //cargar usuarios
 function cargar_usuarios(){
-    fetch ('../../server/user.php?tipo=Cliente', {
+    fetch ('http://nba-server.tk/user.php?tipo=Cliente', {
         "method": "GET"
     })
     .then(data => data.json()) 
@@ -46,7 +46,7 @@ function cargar_usuarios(){
 
 //cargar tarjetas al select
 function cargarselect(id){
-    fetch ('../../server/card.php?id='+id, {
+    fetch ('http://nba-server.tk/card.php?id='+id, {
         "method": "GET"
     })
     .then(data => data.json()) 
@@ -84,7 +84,7 @@ function cargarselect(id){
 
 //cargar datos al form
 function cargarform(id){
-    fetch ('../../server/card.php?card='+id, {
+    fetch ('http://nba-server.tk/card.php?card='+id, {
         "method": "GET"
     })
     .then(data => data.json()) 
@@ -132,7 +132,7 @@ function modificar(){
     const params = new URLSearchParams("id="+document.getElementById('tarjetas').value+"&usuario="+document.getElementById('usuario').value+
     "&titular="+document.getElementById('inputNombre').value+"&tarjeta="+document.getElementById('inputNumero').value+"&ccv="+document.getElementById('inputCCV').value+
     "&mes="+document.getElementById('selectMes').value+"&ano="+document.getElementById('selectYear').value+"&id_user="+sessionStorage["id"]+"");
-    fetch ('../../server/modCard.php', {
+    fetch ('http://nba-server.tk/modCard.php', {
         method: 'POST',
         body: params
     })
@@ -160,7 +160,7 @@ function modificar(){
 //borrar tarjeta
 function delTarjeta(){
     const params = new URLSearchParams("id="+document.getElementById('tarjetas').value+"&id_user="+sessionStorage["id"]+"");
-    fetch ('../../server/delCard.php', {
+    fetch ('http://nba-server.tk/delCard.php', {
         method: 'POST',
         body: params
     })

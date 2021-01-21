@@ -2,6 +2,10 @@
 
     include_once 'apidirecciones.php';
 
+    header('Access-Control-Allow-Origin: *');
+    header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+    header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
+
     $api = new ApiDirecciones();
 
     if(isset($_POST['id']) && isset($_POST['nombre']) && isset($_POST['apellidos']) && isset($_POST['tipo_via']) && isset($_POST['direccion']) && isset($_POST['numero']) 

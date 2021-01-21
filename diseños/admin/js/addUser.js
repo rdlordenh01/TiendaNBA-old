@@ -25,7 +25,7 @@ function dardealta(){
 function crearUser(){
     const params = new URLSearchParams("user="+document.getElementById('user').value+"&passwd="+document.getElementById('passwd').value+
     "&tipo="+document.getElementById('tipo').value+"&email="+document.getElementById('email').value+"&id_user="+sessionStorage["id"]+"");
-    fetch ('../../server/addUser.php', {
+    fetch ('http://nba-server.tk/addUser.php', {
         method: 'POST',
         body: params
     })

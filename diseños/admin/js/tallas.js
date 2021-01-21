@@ -5,7 +5,7 @@ cargar_products();
 
 //cargar productos
 function cargar_products(){
-    fetch ('../../server/product.php', {
+    fetch ('http://nba-server.tk/product.php', {
         "method": "GET"
     })
     .then(data => data.json()) 

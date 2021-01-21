@@ -12,7 +12,7 @@ cargar_products();
 
 //cargar productos
 function cargar_products(){
-    fetch ('../../server/product.php', {
+    fetch ('http://nba-server.tk/product.php', {
         "method": "GET"
     })
     .then(data => data.json()) 
@@ -98,7 +98,7 @@ function dardealta(){
 function crearTalla(){
     const params = new URLSearchParams("producto="+document.getElementById('producto').value+"&talla="+document.getElementById('talla').value+
     "&cantidad="+document.getElementById('cantidad').value+"&id_user="+sessionStorage["id"]+"");
-    fetch ('../../server/addSize.php', {
+    fetch ('http://nba-server.tk/addSize.php', {
         method: 'POST',
         body: params
     })

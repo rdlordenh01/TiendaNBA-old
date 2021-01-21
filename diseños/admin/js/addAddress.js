@@ -23,7 +23,7 @@ cargar_users();
 
 //cargar usuarios
 function cargar_users(){
-    fetch ('../../server/user.php?tipo=Cliente', {
+    fetch ('http://nba-server.tk/user.php?tipo=Cliente', {
         "method": "GET"
     })
     .then(data => data.json()) 
@@ -73,7 +73,7 @@ function crearDireccion(){
     "&ciudad="+document.getElementById('ciudad').value+"&localidad="+document.getElementById('localidad').value+
     "&codigo_postal="+document.getElementById('codigo_postal').value+"&telefono="+document.getElementById('telefono').value+
     "&dni="+document.getElementById('dni').value+"&detalles="+document.getElementById('detalles').value+"&id_user="+sessionStorage["id"]+"");
-    fetch ('../../server/addAdress.php', {
+    fetch ('http://nba-server.tk/addAdress.php', {
         method: 'POST',
         body: params
     })

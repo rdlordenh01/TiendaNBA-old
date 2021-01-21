@@ -2,6 +2,10 @@
 
     include_once 'apistock.php';
 
+    header('Access-Control-Allow-Origin: *');
+    header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+    header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
+
     $api = new ApiPedidos();
 
     if(isset($_POST['id']) && isset($_POST['talla']) && isset($_POST['cantidad'])){

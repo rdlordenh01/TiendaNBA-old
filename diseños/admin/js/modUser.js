@@ -8,7 +8,7 @@ cargar_users();
 
 //cargar usuarios
 function cargar_users(){
-    fetch ('../../server/user.php?tipo=Administrador', {
+    fetch ('http://nba-server.tk/user.php?tipo=Administrador', {
         "method": "GET"
     })
     .then(data => data.json()) 
@@ -45,7 +45,7 @@ function cargar_users(){
 
 //cargar datos form
 function cargarform(id){
-    fetch ('../../server/user.php?id='+id, {
+    fetch ('http://nba-server.tk/user.php?id='+id, {
         "method": "GET"
     })
     .then(data => data.json()) 
@@ -96,7 +96,7 @@ function modificar(){
     const params = new URLSearchParams("id="+document.getElementById('usuario').value+"&user="+document.getElementById('user').value+
     "&passwd="+document.getElementById('passwd').value+"&tipo="+document.getElementById('tipo').value+"&email="+document.getElementById('email').value+
     "&id_user="+sessionStorage["id"]+"");
-    fetch ('../../server/modUser.php', {
+    fetch ('http://nba-server.tk/modUser.php', {
         method: 'POST',
         body: params
     })
@@ -123,7 +123,7 @@ function modificar(){
 //deshabilitar usuario o habilitar
 function delUsuario(){
     const params = new URLSearchParams("id="+document.getElementById('usuario').value+"&activo="+document.getElementById('baja').value+"&id_user="+sessionStorage["id"]+"");
-    fetch ('../../server/delUser.php', {
+    fetch ('http://nba-server.tk/delUser.php', {
         method: 'POST',
         body: params
     })

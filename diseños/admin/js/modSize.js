@@ -9,7 +9,7 @@ cargar_products();
 
 //cargar productos
 function cargar_products(){
-    fetch ('../../server/product.php', {
+    fetch ('http://nba-server.tk/product.php', {
         "method": "GET"
     })
     .then(data => data.json()) 
@@ -45,7 +45,7 @@ function cargar_products(){
 
 //cargar tallas al select
 function cargarselect(id){
-    fetch ('../../server/size.php?prod2='+id, {
+    fetch ('http://nba-server.tk/size.php?prod2='+id, {
         "method": "GET"
     })
     .then(data => data.json()) 
@@ -82,7 +82,7 @@ function cargarselect(id){
 
 //cargar datos en campos del form
 function cargarform(id){
-    fetch ('../../server/size.php?id='+id, {
+    fetch ('http://nba-server.tk/size.php?id='+id, {
         "method": "GET"
     })
     .then(data => data.json()) 
@@ -120,7 +120,7 @@ function modTalla(){
 function modificar(){
     const params = new URLSearchParams("id="+document.getElementById('tallas').value+"&talla="+document.getElementById("tallas").options[document.getElementById("tallas").selectedIndex].text+
     "&cantidad="+document.getElementById('cantidad').value+"&almacenado="+document.getElementById('almacenado').value+"&id_user="+sessionStorage["id"]+"");
-    fetch ('../../server/modSize.php', {
+    fetch ('http://nba-server.tk/modSize.php', {
         method: 'POST',
         body: params
     })
@@ -148,7 +148,7 @@ function modificar(){
 //borrar talla
 function delTalla(){
     const params = new URLSearchParams("id="+document.getElementById('tallas').value+"&id_user="+sessionStorage["id"]+"");
-    fetch ('../../server/delSize.php', {
+    fetch ('http://nba-server.tk/delSize.php', {
         method: 'POST',
         body: params
     })
