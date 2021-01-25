@@ -89,7 +89,7 @@ function cambiar_filas(cont,campos,rows){
                     document.getElementById("campo"+(i-(rows*(cont-1))).toString()+j.toString()).innerHTML = "";
                     celda = document.getElementById("campo"+(i-(rows*(cont-1))).toString()+j.toString());
                     var img = document.createElement("img");
-                    img.setAttribute("src", "../../server/"+array[i][campo]);
+                    img.setAttribute("src", "http://nba-server.tk/"+array[i][campo]);
                     img.setAttribute("width", "125px");
                     celda.appendChild(img);
                 }else{
