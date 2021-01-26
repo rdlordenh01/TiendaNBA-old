@@ -192,7 +192,7 @@ function crear_fila(info,num){
         celda.setAttribute("id", "campo"+num.toString()+i.toString());
         if(info[i].includes('/') & (info[i].includes('.png') | info[i].includes('.jpg') | info[i].includes('.jpeg'))){
             var img = document.createElement("img");
-            img.setAttribute("src", "../../server/"+info[i]);
+            img.setAttribute("src", "http://nba-server.tk/"+info[i]);
             img.setAttribute("width", "125px");
             celda.appendChild(img);
         }else{
