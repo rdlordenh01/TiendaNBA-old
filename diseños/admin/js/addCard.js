@@ -15,7 +15,7 @@ cargar_users();
 
 //cargar usuarios
 function cargar_users(){
-    fetch ('http://nba-server.tk/user.php?tipo=Cliente', {
+    fetch ('http://nba-server4.tk/user.php?tipo=Cliente', {
         "method": "GET"
     })
     .then(data => data.json()) 
@@ -60,7 +60,7 @@ function crearTarjeta(){
     const params = new URLSearchParams("usuario="+document.getElementById('usuario').value+"&titular="+document.getElementById('inputNombre').value+
     "&tarjeta="+document.getElementById('inputNumero').value+"&ccv="+document.getElementById('inputCCV').value+
     "&mes="+document.getElementById('selectMes').value+"&ano="+document.getElementById('selectYear').value+"&id_user="+sessionStorage["id"]+"");
-    fetch ('http://nba-server.tk/addCard.php', {
+    fetch ('http://nba-server4.tk/addCard.php', {
         method: 'POST',
         body: params
     })

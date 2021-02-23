@@ -3,7 +3,7 @@ clasificacion();
 
 //generar tabla con paginacion
 function clasificacion(){
-    fetch("http://nba-server.tk/user.php", {
+    fetch("http://nba-server4.tk/user.php", {
         "method": "GET"
     })
     .then(data => data.json()) 

@@ -4,7 +4,7 @@ cargar_usuarios();
 //cargar usuarios
 function cargar_usuarios(){
     document.getElementById('usuarios').innerHTML="";
-    fetch ('http://nba-server.tk/user.php?tipo=Cliente', {
+    fetch ('http://nba-server4.tk/user.php?tipo=Cliente', {
         "method": "GET"
     })
     .then(data => data.json()) 
@@ -35,7 +35,7 @@ function cargar_usuarios(){
 
 //generar tabla con paginacion
 function clasificacion(){
-    fetch("http://nba-server.tk/card.php?id=" + document.getElementById("usuarios").value, {
+    fetch("http://nba-server4.tk/card.php?id=" + document.getElementById("usuarios").value, {
         "method": "GET"
     })
     .then(data => data.json()) 
