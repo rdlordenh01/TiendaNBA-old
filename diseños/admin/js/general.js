@@ -205,7 +205,7 @@ function menu(opcion){
             break;
         case "Logout":
             const params = new URLSearchParams("tipo=LOGOUT"+"&usuario="+sessionStorage['id']+"");
-            fetch ('http://nba-server4.tk/addRegister.php', {
+            fetch ('https://nba-server4.tk/addRegister.php', {
                 method: 'POST',
                 body: params
             })

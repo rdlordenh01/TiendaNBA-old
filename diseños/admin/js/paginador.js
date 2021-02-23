@@ -89,7 +89,7 @@ function cambiar_filas(cont,campos,rows){
                     document.getElementById("campo"+(i-(rows*(cont-1))).toString()+j.toString()).innerHTML = "";
                     celda = document.getElementById("campo"+(i-(rows*(cont-1))).toString()+j.toString());
                     var img = document.createElement("img");
-                    img.setAttribute("src", "http://nba-server4.tk/"+array[i][campo]);
+                    img.setAttribute("src", "https://nba-server4.tk/"+array[i][campo]);
                     img.setAttribute("width", "125px");
                     celda.appendChild(img);
                 }else{
@@ -192,7 +192,7 @@ function crear_fila(info,num){
         celda.setAttribute("id", "campo"+num.toString()+i.toString());
         if(info[i].includes('/') & (info[i].includes('.png') | info[i].includes('.jpg') | info[i].includes('.jpeg'))){
             var img = document.createElement("img");
-            img.setAttribute("src", "http://nba-server4.tk/"+info[i]);
+            img.setAttribute("src", "https://nba-server4.tk/"+info[i]);
             img.setAttribute("width", "125px");
             celda.appendChild(img);
         }else{

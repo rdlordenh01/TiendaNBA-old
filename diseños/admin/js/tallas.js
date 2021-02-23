@@ -5,7 +5,7 @@ cargar_products();
 
 //cargar productos
 function cargar_products(){
-    fetch ('http://nba-server4.tk/product.php', {
+    fetch ('https://nba-server4.tk/product.php', {
         "method": "GET"
     })
     .then(data => data.json()) 
@@ -37,7 +37,7 @@ function cargar_products(){
 
 //generar tabla
 function clasificacion(id){
-    fetch("../../server/size.php?prod="+id, {
+    fetch("https://nba-server4.tk/size.php?prod="+id, {
         "method": "GET"
     })
     .then(data => data.json()) 

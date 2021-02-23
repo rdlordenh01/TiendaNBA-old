@@ -9,7 +9,7 @@ cargar_usuarios();
 
 //cargar usuarios
 function cargar_usuarios(){
-    fetch ('http://nba-server4.tk/user.php?tipo=Cliente', {
+    fetch ('https://nba-server4.tk/user.php?tipo=Cliente', {
         "method": "GET"
     })
     .then(data => data.json()) 
@@ -45,7 +45,7 @@ function cargar_usuarios(){
 
 //cargar select con direcciones
 function cargarselect(id){
-    fetch ('http://nba-server4.tk/address.php?id='+id, {
+    fetch ('https://nba-server4.tk/address.php?id='+id, {
         "method": "GET"
     })
     .then(data => data.json()) 
@@ -82,7 +82,7 @@ function cargarselect(id){
 
 //cargar datos al form
 function cargarform(id){
-    fetch ('http://nba-server4.tk/address.php?dir='+id, {
+    fetch ('https://nba-server4.tk/address.php?dir='+id, {
         "method": "GET"
     })
     .then(data => data.json()) 
@@ -152,7 +152,7 @@ function modificar(){
     "&numero="+document.getElementById('numero').value+"&detalles="+document.getElementById('detalles').value+"&ciudad="+document.getElementById('ciudad').value+
     "&localidad="+document.getElementById('localidad').value+"&codigo_postal="+document.getElementById('codigo_postal').value+"&telefono="+document.getElementById('telefono').value+
     "&dni="+document.getElementById('dni').value+"&id_user="+sessionStorage["id"]+"");
-    fetch ('http://nba-server4.tk/modAdress.php', {
+    fetch ('https://nba-server4.tk/modAdress.php', {
         method: 'POST',
         body: params
     })
@@ -180,7 +180,7 @@ function modificar(){
 //eliminar direccion
 function delDireccion(){
     const params = new URLSearchParams("id="+document.getElementById('direcciones').value+"&id_user="+sessionStorage["id"]+"");
-    fetch ('http://nba-server4.tk/delAdress.php', {
+    fetch ('https://nba-server4.tk/delAdress.php', {
         method: 'POST',
         body: params
     })

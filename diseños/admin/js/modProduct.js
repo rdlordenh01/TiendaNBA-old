@@ -96,7 +96,7 @@ function cargar_subcategoria(){
 
 //cargar productos
 function cargar_products(){
-    fetch ('http://nba-server4.tk/product.php', {
+    fetch ('https://nba-server4.tk/product.php', {
         "method": "GET"
     })
     .then(data => data.json()) 
@@ -132,7 +132,7 @@ function cargar_products(){
 
 //cargar datos al form
 function cargarform(id){
-    fetch ('http://nba-server4.tk/product.php?id='+id, {
+    fetch ('https://nba-server4.tk/product.php?id='+id, {
         "method": "GET"
     })
     .then(data => data.json()) 
@@ -167,7 +167,7 @@ function rellenar(datos){
     document.getElementById("subcategoria").value = datos['subcategoria'];
     document.getElementById("descripcion").value = datos['descripcion'];
     document.getElementById("precio").value = datos['precio'];
-    document.getElementById("foto").src = "../../server/" + datos['imagen'];
+    document.getElementById("foto").src = "https://nba-server4.tk/" + datos['imagen'];
 }
 
 //comprobacion
@@ -187,7 +187,7 @@ function modificar(){
     const params = new URLSearchParams("id="+document.getElementById('producto').value+"&nombre="+document.getElementById('nombre').value+"&equipo="+document.getElementById('equipo').value+
     "&marca="+document.getElementById('marca').value+"&categoria="+document.getElementById('categoria').value+"&subcategoria="+document.getElementById('subcategoria').value+
     "&descripcion="+document.getElementById('descripcion').value+"&precio="+document.getElementById('precio').value+"&id_user="+sessionStorage["id"]+"");
-    fetch ('http://nba-server4.tk/modProduct.php', {
+    fetch ('https://nba-server4.tk/modProduct.php', {
         method: 'POST',
         body: params
     })
@@ -214,7 +214,7 @@ function modificar(){
 //borrar producto
 function delProducto(){
     const params = new URLSearchParams("id="+document.getElementById('producto').value+"&id_user="+sessionStorage["id"]+"");
-    fetch ('http://nba-server4.tk/delProduct.php', {
+    fetch ('https://nba-server4.tk/delProduct.php', {
         method: 'POST',
         body: params
     })
