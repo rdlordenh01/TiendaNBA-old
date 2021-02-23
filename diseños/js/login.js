@@ -23,7 +23,7 @@ function login(){
         "method": "GET"
     }) */
     //alert('../server/user.php?user='+document.getElementById("username").value+'&passwd='+document.getElementById("passwd").value);
-    fetch ('http://nba-server.tk/user.php?user='+document.getElementById("username").value+'&passwd='+document.getElementById("passwd").value, {
+    fetch ('https://nba-server4.tk/user.php?user='+document.getElementById("username").value+'&passwd='+document.getElementById("passwd").value, {
         "method": "GET"
     })
         .then(data => data.json()) 
